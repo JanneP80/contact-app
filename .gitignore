@@ -1,1 +1,6 @@
 /contact-app/.idea
+/server/WebApi/.vs
+/server/WebApi/WebApi/bin
+/server/WebApi/WebApi/obj
+/server/WebApi/WebApi/WebApi.csproj.user
+/client/*.iml
