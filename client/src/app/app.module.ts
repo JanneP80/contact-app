@@ -10,12 +10,14 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import {DialogService} from "./contact/services/dialog.service";
 import {ContactService} from "./contact/services/contact.service";
 import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
+import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactListItemComponent
+    ContactListItemComponent,
+    ContactDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -3,18 +3,21 @@ import {Contact} from "app/contact/contact";
 
 import {Component} from '@angular/core';
 import {MdDialog} from '@angular/material';
+import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component";
 
 @Injectable()
 export class DialogService {
-/*
+
+
+
   constructor(private dialog: MdDialog) { }
 
   public contactDialog(contact?: Contact){
     let dialogRef = this.dialog.open(ContactDialogComponent);
-    dialogRef.componentInstance.contact = contact;
+    // dialogRef.componentInstance.contact = contact;
     return dialogRef.afterClosed();
   }
-
+/*
   public mapDialog(address: string){
     let dialogRef = this.dialog.open(MapDialogComponent);
     dialogRef.componentInstance.address = address;
