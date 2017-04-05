@@ -10,6 +10,9 @@ import {ContactService} from "./contact/services/contact.service";
 export class AppComponent {
 
   contacts: Contact[];
+  selectedContact: Contact;
+
+  helloText: string;
 
   addContact(){
 
@@ -20,4 +23,16 @@ export class AppComponent {
     this.contacts = contactService.findContacts();
 
   }
+
+  contactSelected(contact: Contact){
+    this.selectedContact = contact;
+
+  }
+/*
+  MdDialog
+
+  contactDialog(){
+    this.contactDialog = contact;
+  }
+  */
 }

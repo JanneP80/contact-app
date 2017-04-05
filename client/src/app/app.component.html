@@ -2,7 +2,19 @@
   {{title}}
 </h1>
 
+<app-contact-list [contacts]="contacts" (select)="contactSelected($event)"></app-contact-list>
+
 <div *ngFor="let contact of contacts">
   {{contact.firstName + ' ' + contact.lastName}}
 
 </div>
+
+<div *ngIf="selectedContact">
+  Selected: {{selectedContact.firstName}}
+</div>
+
+<md-input-container>
+  <input mdInput [(ngModel)]="helloText" type="text" required
+         placeholder="Type something">
+</md-input-container>
+<br>
