@@ -27,6 +27,6 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
     MaterialModule
   ],
   providers: [ContactService, DialogService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,ContactDialogComponent]
 })
 export class AppModule { }

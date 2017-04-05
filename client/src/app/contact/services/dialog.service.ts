@@ -9,12 +9,11 @@ import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component
 export class DialogService {
 
 
-
   constructor(private dialog: MdDialog) { }
 
   public contactDialog(contact?: Contact){
     let dialogRef = this.dialog.open(ContactDialogComponent);
-    // dialogRef.componentInstance.contact = contact;
+    dialogRef.componentInstance.contact = contact;
     return dialogRef.afterClosed();
   }
 /*

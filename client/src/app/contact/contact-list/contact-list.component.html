@@ -4,9 +4,9 @@
 </div>
 
 <button md-fab>
-  <md-icon>add</md-icon>
+  <md-icon (click)="editContact">add</md-icon>
 </button>
 
 
-<button md-button (click)="openDialog()">Open dialog</button>
+<button md-button (click)="contactDialog(contact)">Open dialog</button>
 
