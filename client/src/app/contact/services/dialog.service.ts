@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "app/contact/contact";
 
+import {Component} from '@angular/core';
+import {MdDialog} from '@angular/material';
+
 @Injectable()
 export class DialogService {
 /*
