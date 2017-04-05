@@ -15,7 +15,7 @@ export class ContactListComponent implements OnInit {
   @Output() editContact: EventEmitter<Contact>;
   @Output() removeContact: EventEmitter<Contact>;
   @Output() showContactOnMap: EventEmitter<Contact>;
-  
+
   constructor() {
     this.select = new EventEmitter();
   }
