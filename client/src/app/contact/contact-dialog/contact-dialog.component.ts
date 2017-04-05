@@ -9,6 +9,9 @@ import {ContactListComponent} from "../contact-list/contact-list.component";
   styleUrls: ['./contact-dialog.component.css']
 })
 export class ContactDialogComponent implements OnInit {
+  constructor(contact) {
+    this._contact = contact;
+  }
 
   private _contact;
     //= ContactListComponent;
@@ -24,7 +27,6 @@ export class ContactDialogComponent implements OnInit {
   // ContactListItemComponent._contact;
 
 
-  constructor() { }
 
   ngOnInit() {
   }
