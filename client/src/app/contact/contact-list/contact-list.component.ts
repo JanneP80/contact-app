@@ -8,7 +8,7 @@ import {MdDialog} from '@angular/material';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-
+/*
   @Input() private _contacts: [Contact];
   @Output() select: EventEmitter<Contact>;
 
@@ -51,12 +51,13 @@ export class ContactListComponent implements OnInit {
   constructor() {
     this.select = new EventEmitter();
   }
-
+*/
   ngOnInit() {
   }
-
+/*
   contactSelected(contact: Contact){
     this.select.emit(contact);
 
   }
+*/
 }

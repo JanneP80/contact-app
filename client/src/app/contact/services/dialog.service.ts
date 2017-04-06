@@ -8,7 +8,7 @@ import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component
 @Injectable()
 export class DialogService {
 
-
+/*
   constructor(private dialog: MdDialog) { }
 
   public contactDialog(contact?: Contact){
@@ -16,6 +16,9 @@ export class DialogService {
     dialogRef.componentInstance.contact = contact;
     return dialogRef.afterClosed();
   }
+
+  */
+
 /*
   public mapDialog(address: string){
     let dialogRef = this.dialog.open(MapDialogComponent);

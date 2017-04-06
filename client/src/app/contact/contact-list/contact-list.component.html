@@ -1,3 +1,4 @@
+<!--
 <div *ngFor="let contact of contacts" (click)="contactSelected(contact)">
   {{contact.firstName + ' ' + contact.lastName}}
 
@@ -10,3 +11,10 @@
 
 <button md-button (click)="contactDialog(selectedContact)">Open dialog</button>
 
+<div *ngFor="let contact of contacts">
+  <app-contact-list-item [contact]="contact" (edit)="edit($event)" (remove)="remove($event)" (showOnMap)="showOnMap($event)">
+    contact-list works!
+  </app-contact-list-item>
+</div>
+
+-->

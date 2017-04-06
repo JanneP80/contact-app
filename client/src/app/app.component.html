@@ -1,20 +1,40 @@
+<div class="contactList">
+
+<div class="contactList-item">
+
 <h1>
   {{title}}
 </h1>
 
+<!-- TODO ContactList items are displayed here: -->
+  <!--
 <app-contact-list [contacts]="contacts" (select)="contactSelected($event)"></app-contact-list>
+-->
 
+<button md-fab (click)="addContact()">
+  <md-icon>add</md-icon>
+</button>
+
+
+</div></div>
+
+<!-- OFF
 <div *ngFor="let contact of contacts">
   {{contact.firstName + ' ' + contact.lastName}}
 
 </div>
+-->
+
+
+<!-- ON
 
 <div *ngIf="selectedContact">
   Selected: {{selectedContact.firstName}}
 </div>
 
 <md-input-container>
-  <input mdInput [(ngModel)]="helloText" type="text" required
+  <input mdInput [(ngModel)]="firstname" type="text" required
          placeholder="Type something">
 </md-input-container>
 <br>
+-->

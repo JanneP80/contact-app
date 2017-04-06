@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ContactService} from "../services/contact.service";
-import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
-import {ContactListComponent} from "../contact-list/contact-list.component";
+// import {ContactService} from "../services/contact.service";
+// import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
+// import {ContactListComponent} from "../contact-list/contact-list.component";
 
 @Component({
   selector: 'app-contact-dialog',
@@ -9,7 +9,25 @@ import {ContactListComponent} from "../contact-list/contact-list.component";
   styleUrls: ['./contact-dialog.component.css']
 })
 export class ContactDialogComponent implements OnInit {
-  constructor(contact) {
+
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address: string;
+  city: string;
+
+  /*
+  firstName,
+  lastName,
+  phone,
+  address,
+  city
+  */
+
+  subtitle='Add New Contact:';
+
+  constructor() {
+    /*
     this._contact = contact;
   }
 
@@ -22,11 +40,15 @@ export class ContactDialogComponent implements OnInit {
 
   set contact(value) {
     this._contact = value;
+
+    */
   }
 
   // ContactListItemComponent._contact;
 
-
+  addNewContact(firstName, lastName, phone, address, city){
+    console.log(firstName);
+  }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@ import {Contact} from "../contact";
   styleUrls: ['./contact-list-item.component.css']
 })
 export class ContactListItemComponent implements OnInit {
-
+/*
   @Input() contacts: [Contact];
   @Input() edit: EventEmitter<Contact>;
   @Input() remove: EventEmitter<Contact>;
@@ -30,7 +30,7 @@ export class ContactListItemComponent implements OnInit {
   showContact(contact: Contact){
     this.showOnMap.emit(contact);
   }
-
+*/
   ngOnInit() {
   }
 
