@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import {ContactService} from "../services/contact.service";
+import {ContactService} from "../services/contact.service";
 // import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
 // import {ContactListComponent} from "../contact-list/contact-list.component";
 
@@ -9,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-dialog.component.css']
 })
 export class ContactDialogComponent implements OnInit {
-
+/*
   firstName: string;
   lastName: string;
   phone: string;
   address: string;
   city: string;
-
+*/
   /*
   firstName,
   lastName,
@@ -24,7 +24,7 @@ export class ContactDialogComponent implements OnInit {
   city
   */
 
-  subtitle='Add New Contact:';
+  // subtitle='Add New Contact:';
 
   constructor() {
     /*
@@ -48,7 +48,8 @@ export class ContactDialogComponent implements OnInit {
 
   addNewContact(firstName, lastName, phone, address, city){
     console.log(firstName);
-    //ContactService:addNewContact(firstName, lastName, phone, address, city);
+
+    ContactService.addNewContact(firstName, lastName, phone, address, city);
   }
 
   ngOnInit() {

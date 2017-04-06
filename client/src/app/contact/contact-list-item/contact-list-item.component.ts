@@ -1,7 +1,9 @@
-import {Component, EventEmitter, Input, OnInit,} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { MdDialog } from "@angular/material";
-import {Contact} from "../contact";
-//import { ContactDialogComponent } from "../contact/contact-dialog/contact-dialog.component";
+import { Contact } from "../contact";
+import { ContactDialogComponent } from "../contact-dialog/contact-dialog.component";
+import { ContactListComponent } from "../contact-list/contact-list.component";
+import {ContactService} from "../services/contact.service";
 
 @Component({
   selector: 'app-contact-list-item',
@@ -10,7 +12,16 @@ import {Contact} from "../contact";
 })
 export class ContactListItemComponent implements OnInit {
 
-  // contacts: Contact[];
+  contacts: Contact[];
+noName: string;
+  gfirstName = this.contacts;
+id: number;
+    lastName: string;
+  phone: string;
+  address: string;
+  city: string;
+
+  subtitle: string;
 
   @Input() contact: [Contact];
   @Input() edit: EventEmitter<Contact>;
@@ -23,11 +34,16 @@ export class ContactListItemComponent implements OnInit {
     this.edit = new EventEmitter<Contact>();
     this.remove = new EventEmitter<Contact>();
     this.showOnMap = new EventEmitter<Contact>();
+    this.noName = 'Alfred';
+    // this.id = ContactService.id;
+    this.id= Contact.length;
+    this.id = 1;
 
   }
 
   editContact(contact: Contact){
-    //this.dialog.open(ContactDialogComponent);
+    this.subtitle = 'Edit Contact';
+    this.dialog.open(ContactDialogComponent);
     this.edit.emit(contact);
   }
 

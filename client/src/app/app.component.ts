@@ -25,7 +25,7 @@ export class AppComponent {
   // selectedContact: Contact;
 
   title = 'Contacts:';
-
+  subtitle='Add New Contact:';
   // firstname: string;
   /*
   constructor(){
@@ -47,6 +47,7 @@ export class AppComponent {
 
   /* New Contact button here */
   addContact() {
+    this.subtitle='Add New Contact:';
     this.dialog.open(ContactDialogComponent);
   }
 

@@ -9,6 +9,7 @@ export class ContactService {
   Here is handled the communication with the storage.
 
    */
+static id: number;
 
   public contacts: Contact[];
 
@@ -23,16 +24,20 @@ export class ContactService {
 
   }
 
-  public addNewContact(contacts){
-    this.contacts = contacts;
+  static addNewContact(firstName: any, lastName: any, phone: any, address: any, city: any){
+    //this.contacts = contacts;
+    this.id = 3;
     // TODO store here
+    new Contact(this.id, firstName, lastName, phone, address, city);
+    console.log(lastName);
   }
 
   public findContacts(): Contact[]{
-    // this.dialog.open(ContactListItemComponent);
+    //this.dialog.open(ContactListItemComponent);
     // return ContactListItemComponent.contact;
     return this.contacts;
 
   }
+
 
 }
