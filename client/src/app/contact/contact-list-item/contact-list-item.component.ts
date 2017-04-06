@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit,} from '@angular/core';
+import { MdDialog } from "@angular/material";
 import {Contact} from "../contact";
+//import { ContactDialogComponent } from "../contact/contact-dialog/contact-dialog.component";
 
 @Component({
   selector: 'app-contact-list-item',
@@ -7,19 +9,25 @@ import {Contact} from "../contact";
   styleUrls: ['./contact-list-item.component.css']
 })
 export class ContactListItemComponent implements OnInit {
-/*
-  @Input() contacts: [Contact];
+
+  // contacts: Contact[];
+
+  @Input() contact: [Contact];
   @Input() edit: EventEmitter<Contact>;
   @Input() remove: EventEmitter<Contact>;
   @Input() showOnMap: EventEmitter<Contact>;
 
-  constructor() {
-    this.edit = new EventEmitter();
-    this.remove = new EventEmitter();
-    this.showOnMap = new EventEmitter();
+
+
+  constructor(public dialog: MdDialog) {
+    this.edit = new EventEmitter<Contact>();
+    this.remove = new EventEmitter<Contact>();
+    this.showOnMap = new EventEmitter<Contact>();
 
   }
+
   editContact(contact: Contact){
+    //this.dialog.open(ContactDialogComponent);
     this.edit.emit(contact);
   }
 
@@ -30,7 +38,7 @@ export class ContactListItemComponent implements OnInit {
   showContact(contact: Contact){
     this.showOnMap.emit(contact);
   }
-*/
+
   ngOnInit() {
   }
 

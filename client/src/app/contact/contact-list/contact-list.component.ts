@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {Contact} from "../contact";
 import {MdDialog} from '@angular/material';
+// import {ContactDialog} from '../contact-dialog/contact-dialog.component'
 
 @Component({
   selector: 'app-contact-list',
@@ -8,7 +9,7 @@ import {MdDialog} from '@angular/material';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-/*
+
   @Input() private _contacts: [Contact];
   @Output() select: EventEmitter<Contact>;
 
@@ -51,7 +52,7 @@ export class ContactListComponent implements OnInit {
   constructor() {
     this.select = new EventEmitter();
   }
-*/
+
   ngOnInit() {
   }
 /*

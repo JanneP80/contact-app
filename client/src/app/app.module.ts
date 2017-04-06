@@ -6,9 +6,9 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-// import { ContactListComponent } from './contact/contact-list/contact-list.component';
-// import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
-// import { ContactService } from "./contact/services/contact.service";
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
+import { ContactService } from "./contact/services/contact.service";
 
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
 // import { DialogService } from "./contact/services/dialog.service";
@@ -17,8 +17,8 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
 @NgModule({
   declarations: [
     AppComponent,
-  //  ContactListComponent,
-  //  ContactListItemComponent,
+    ContactListComponent,
+    ContactListItemComponent,
     ContactDialogComponent
 
   ],
@@ -32,7 +32,7 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
   ],
  // providers: [ContactService, DialogService],
  // bootstrap: [AppComponent,ContactDialogComponent]
-//  providers: [ContactService],
+  providers: [ContactService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent]
 })

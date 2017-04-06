@@ -1,7 +1,3 @@
-<p>
-  contact-list-item works!
-</p>
-
 <!--
 <button md-fab (click)="showContact(contact)">
   <md-icon>place</md-icon>
@@ -10,7 +6,7 @@
 <button md-fab (click)="removeContact(contact)">
   <md-icon>delete</md-icon>
 </button>
-
+-->
 
 <md-card>
   <md-card-header>
@@ -20,24 +16,27 @@
   </md-card-header>
   <md-card-content>
     <ul>
-      <li>{{contact.firstName}}</li>
+      <li>{{contactService.contacts.values()}}</li>
+      <li>joo</li>
       <li>{{contact.lastName}}</li>
       <li>{{contact.phone}}</li>
-      <li>{{contact.streetAddress}}</li>
+      <li>{{contact.address}}</li>
       <li>{{contact.city}}</li>
     </ul>
   </md-card-content>
   <md-card-actions>
+    <button md-fab (click)="removeContact()">
+      <md-icon>delete</md-icon>
+    </button>
     <button md-fab (click)="editContact()">
       <md-icon>create</md-icon>
     </button>
-    <button md-fab (click)="removeContact()">
-      <md-icon>delete_sweep</md-icon>
-    </button>
-    <button md-fab (click)="showContactOnMap()">
-      <md-icon>place</md-icon>
+
+    <button md-fab align="right" (click)="showContact()">
+      <md-icon >place</md-icon>
     </button>
   </md-card-actions>
 
 </md-card>
+<!--
 -->

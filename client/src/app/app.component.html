@@ -7,16 +7,39 @@
 </h1>
 
 <!-- TODO ContactList items are displayed here: -->
-  <!--
-<app-contact-list [contacts]="contacts" (select)="contactSelected($event)"></app-contact-list>
+
+<app-contact-list>Loading contacts...</app-contact-list>
+
+<!--
+  <md-list dense *ngFor="let contact of contacts">
+    <md-list-item>{{contact.firstName + ' ' + contact.lastName}}</md-list-item>
+    <md-list-item>{{contact.phone}}</md-list-item>
+    <md-list-item>{{contact.address + ', ' + contact.city}}</md-list-item>
+  </md-list>
+
+  -->
+ <!--
+  <div *ngFor="let contact of viewContacts()">
+    {{contact.firstName + ' ' + contact.lastName}}
+
+  </div>
 -->
 
+ <!--
+   <div *ngFor="let contact of contacts">
+    {{contact.firstName + ' ' + contact.lastName}}
+
+<div  ngFor=" viewContacts();">{{contact.firstName + ' ' + contact.lastName}}
+</div>
+  </div>
+-->
 <button md-fab (click)="addContact()">
   <md-icon>add</md-icon>
 </button>
 
 
-</div></div>
+</div>
+</div>
 
 <!-- OFF
 <div *ngFor="let contact of contacts">
@@ -24,7 +47,9 @@
 
 </div>
 -->
-
+<!--
+<app-contact-list [contacts]="contacts" (select)="contactSelected($event)"></app-contact-list>
+-->
 
 <!-- ON
 

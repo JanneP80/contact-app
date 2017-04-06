@@ -48,6 +48,7 @@ export class ContactDialogComponent implements OnInit {
 
   addNewContact(firstName, lastName, phone, address, city){
     console.log(firstName);
+    //ContactService:addNewContact(firstName, lastName, phone, address, city);
   }
 
   ngOnInit() {

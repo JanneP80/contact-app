@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MdDialog } from "@angular/material";
-// import { Contact } from "./contact/contact";
-// import { ContactService } from "./contact/services/contact.service";
+import { Contact } from "./contact/contact";
+import { ContactService } from "./contact/services/contact.service";
 import { ContactDialogComponent } from "./contact/contact-dialog/contact-dialog.component";
 
 @Component({
@@ -20,7 +20,8 @@ export class AppComponent {
     - listening contact-list.component incoming actions
    */
 
-  // contacts: Contact[];
+  contacts: Contact[];
+
   // selectedContact: Contact;
 
   title = 'Contacts:';
@@ -33,11 +34,17 @@ export class AppComponent {
   }
    */
 
-  constructor(public dialog: MdDialog) {
+  constructor(public dialog: MdDialog, public contactService: ContactService) {
     console.log('hi');
     /* TODO Handle ContactList here */
-    // this.contacts = contactService.findContacts();
+    this.contacts = contactService.findContacts();
   }
+
+  viewContacts(){
+    this.contacts = this.contactService.findContacts();
+
+  }
+
   /* New Contact button here */
   addContact() {
     this.dialog.open(ContactDialogComponent);

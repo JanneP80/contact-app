@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Contact} from "app/contact/contact";
+import { Contact } from "app/contact/contact";
+import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
+import { MdDialog } from "@angular/material";
 
 @Injectable()
 export class ContactService {
@@ -8,9 +10,9 @@ export class ContactService {
 
    */
 
-  private contacts: Contact[];
+  public contacts: Contact[];
 
-  constructor() {
+  constructor(public dialog: MdDialog) {
 
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),
@@ -21,8 +23,16 @@ export class ContactService {
 
   }
 
+  public addNewContact(contacts){
+    this.contacts = contacts;
+    // TODO store here
+  }
+
   public findContacts(): Contact[]{
+    // this.dialog.open(ContactListItemComponent);
+    // return ContactListItemComponent.contact;
     return this.contacts;
+
   }
 
 }
