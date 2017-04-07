@@ -7,10 +7,11 @@
 </h1>
 
 <!-- TODO ContactList items are displayed here: -->
-  <!--  <app-contact-list [contacts]="contacts"></app-contact-list> -->
+  <app-contact-list [_contacts]="contacts">Loading contacts...</app-contact-list>
 
-  <app-contact-list>Loading contacts...</app-contact-list>
-    <app-contact-list-item *ngFor="let contact of contacts">{{contact.firstName + ' ' + contact.lastName}}</app-contact-list-item>
+  <!--
+  <app-contact-list-item *ngFor="let contact of contacts">{{contact.firstName + ' ' + contact.lastName}}</app-contact-list-item>
+  -->
   <!--
     <md-list dense *ngFor="let contact of contacts">
       <md-list-item>{{contact.firstName + ' ' + contact.lastName}}</md-list-item>

@@ -9,11 +9,12 @@ export class ContactService {
   Here is handled the communication with the storage.
 
    */
-static id: number;
+  static id: number;
 
-  public contacts: Contact[];
+  private contacts: Contact[];
 
-  constructor(public dialog: MdDialog) {
+  // const: (public dialog: MdDialog)
+  constructor() {
 
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),

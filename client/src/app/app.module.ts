@@ -11,7 +11,7 @@ import { ContactListItemComponent } from './contact/contact-list-item/contact-li
 import { ContactService } from "./contact/services/contact.service";
 
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
-// import { DialogService } from "./contact/services/dialog.service";
+import { DialogService } from "./contact/services/dialog.service";
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
   ],
  // providers: [ContactService, DialogService],
  // bootstrap: [AppComponent,ContactDialogComponent]
-  providers: [ContactService],
+  providers: [ContactService, DialogService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent]
 })

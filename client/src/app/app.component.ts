@@ -37,17 +37,19 @@ export class AppComponent {
   constructor(public dialog: MdDialog, public contactService: ContactService) {
     console.log('hi');
     /* TODO Handle ContactList here */
-    this.contacts = contactService.findContacts();
+    this.contacts = this.contactService.findContacts();
   }
-
+/*
   viewContacts(){
     this.contacts = this.contactService.findContacts();
 
   }
+*/
 
   /* New Contact button here */
   addContact() {
     this.subtitle='Add New Contact:';
+    // TODO contact through dialog implementation + add to constructor
     this.dialog.open(ContactDialogComponent);
   }
 

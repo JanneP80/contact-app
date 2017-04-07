@@ -1,10 +1,18 @@
 
+<div fxLayout="column" fxLayoutAlign="space-around center"  *ngFor="let contact of contacts">
+
+  <app-contact-list-item [contact]="contact">Loading contact list item...</app-contact-list-item>
+
+</div>
+
+<!--
 <app-contact-list-item *ngFor="let contact of _contacts">Loading item...</app-contact-list-item>
 <app-contact-list-item>Loading item...</app-contact-list-item>
 
 <div *ngFor="let contact of _contacts">
   {{contact.firstName + ' ' + contact.lastName}}>
 </div>
+-->
 
 <!--
 <div *ngFor="let contact of _contacts">
