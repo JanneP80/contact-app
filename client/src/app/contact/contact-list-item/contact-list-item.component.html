@@ -11,12 +11,12 @@
 <md-card>
   <md-card-header>
     <md-card-title>
-      Contact
+      Contact {{contact.id}}
     </md-card-title>
   </md-card-header>
   <md-card-content>
-    <div >
-      {{contact.firstName + ' ' + contact.lastName}}>
+    <div class="contact-header">
+      {{contact.firstName + ' ' + contact.lastName}}
     </div>
     <div>
       {{contact.address}}, {{contact.city}}
@@ -26,16 +26,19 @@
     </div>
   </md-card-content>
   <md-card-actions>
-    <button md-fab (click)="removeContact()">
+    <div>
+    <button md-icon-button (click)="removeContact()">
       <md-icon>delete</md-icon>
     </button>
-    <button md-fab (click)="editContact()">
+    <button md-icon-button (click)="editContact()">
       <md-icon>create</md-icon>
     </button>
-
-    <button md-fab align="right" (click)="showContact()">
-      <md-icon >place</md-icon>
+    </div>
+<div fxFlex fxlayout="row" fxLayoutAlign="end center">
+    <button md-icon-button (click)="showContact()">
+      <md-icon>place</md-icon>
     </button>
+</div>
   </md-card-actions>
 
 </md-card>

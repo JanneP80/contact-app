@@ -39,22 +39,27 @@ export class AppComponent {
     /* TODO Handle ContactList here */
     this.contacts = this.contactService.findContacts();
   }
-/*
+
   viewContacts(){
     this.contacts = this.contactService.findContacts();
 
   }
-*/
+
 
   /* New Contact button here */
-  addContact() {
+  addContact(contact) {
     this.subtitle='Add New Contact:';
     // TODO contact through dialog implementation + add to constructor
     this.dialog.open(ContactDialogComponent);
+    this.viewContacts();
+
   }
 
 /* TODO other logic here*/
 
+  onEditContact(contact: Contact) {
+    this.addContact(contact);
+  }
 /* ON
   addContact() {
     ContactDialogComponent;

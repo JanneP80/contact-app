@@ -19,18 +19,19 @@ export class ContactService {
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),
       new Contact(1, 'Mörkö', 'Pötkö',23445,'jaappani'),
-      new Contact(2, 'Aatu', 'Beetu',5466,'ceetä')
-
+      new Contact(2, 'Aatu', 'Beetu',5466,'ceetä'),
+      new Contact(3, 'safasdfsdfsdfu', 'Bsdafsdafsdfsdfu',43534554345466,'cesdfaasdfä', 'dsfgdsrfg')
     ];
 
   }
 
   static addNewContact(firstName: any, lastName: any, phone: any, address: any, city: any){
     //this.contacts = contacts;
-    this.id = 3;
+    this.id = 4;
     // TODO store here
     new Contact(this.id, firstName, lastName, phone, address, city);
     console.log(lastName);
+
   }
 
   public findContacts(): Contact[]{

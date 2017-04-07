@@ -1,0 +1,11 @@
+md-card-title {
+  text-align: center;
+}
+
+md-card {
+  width: 225px;
+}
+
+.contact-header {
+  font-weight: bold;
+}

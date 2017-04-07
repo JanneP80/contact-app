@@ -46,10 +46,11 @@ export class ContactDialogComponent implements OnInit {
 
   // ContactListItemComponent._contact;
 
-  addNewContact(firstName, lastName, phone, address, city){
+  addNewContact(firstName?, lastName?, phone?, address?, city?){
     console.log(firstName);
 
     ContactService.addNewContact(firstName, lastName, phone, address, city);
+
   }
 
   ngOnInit() {

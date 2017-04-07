@@ -6,8 +6,12 @@
   {{title}}
 </h1>
 
-<!-- TODO ContactList items are displayed here: -->
-  <app-contact-list [_contacts]="contacts">Loading contacts...</app-contact-list>
+<!-- TODO ContactList items are displayed here and REFRESH: -->
+  <app-contact-list [_contacts]="contacts"
+                    (editContact)="onEditContact($event)"
+                    (removeContact)="onDeleteContact($event)"
+                    (showContactOnMap)="onShowContactOnMap($event)"
+  >Loading contacts...</app-contact-list>
 
   <!--
   <app-contact-list-item *ngFor="let contact of contacts">{{contact.firstName + ' ' + contact.lastName}}</app-contact-list-item>
@@ -35,10 +39,11 @@
 </div>
   </div>
 -->
+  <div align="right">
 <button md-fab (click)="addContact()">
   <md-icon>add</md-icon>
 </button>
-
+  </div>
 
 </div>
 </div>
