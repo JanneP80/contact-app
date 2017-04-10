@@ -38,6 +38,20 @@ export class ContactService {
 
   }
 
+  public editContact(contact){
+  // public editContact(contact){
+    //TODO count position of the contact in the array based on finding contact.id
+    this.contacts.splice(contact.id, 1, contact);
+    console.log(this.contacts);
+  }
+
+  public deleteContact(contact){
+    console.log('delete', contact);
+    //TODO count position of the contact in the array based on finding contact.id
+    this.contacts.splice(contact.id, 1);
+    console.log('delete', contact);
+  }
+
   public findContacts(): Contact[]{
     //this.dialog.open(ContactListItemComponent);
     // return ContactListItemComponent.contact;

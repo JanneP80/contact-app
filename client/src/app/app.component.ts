@@ -3,7 +3,7 @@ import { MdDialog } from "@angular/material";
 import { Contact } from "./contact/contact";
 import { ContactService } from "./contact/services/contact.service";
 import { ContactDialogComponent } from "./contact/contact-dialog/contact-dialog.component";
-import {DialogService} from "app/contact/services/dialog.service";
+import { DialogService } from "app/contact/services/dialog.service";
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,7 @@ export class AppComponent {
   // selectedContact: Contact;
 
   title = 'Contacts:';
-  subtitle='Add New Contact:';
+  // subtitle='Add New Contact:';
   // firstname: string;
   /*
   constructor(){
@@ -49,7 +49,7 @@ export class AppComponent {
 
   /* New Contact button here */
   addContact(contact) {
-    this.subtitle='Add New Contact:';
+    // this.subtitle='Add New Contact:';
     // TODO contact through dialog implementation + add to constructor
     // this.dialog.open(ContactDialogComponent);
     this.dialogService.contactDialog(contact);
@@ -62,7 +62,14 @@ export class AppComponent {
 
   onEditContact(contact: Contact) {
     this.addContact(contact);
+    console.log('haloo');
   }
+
+  onDeleteContact(contact: Contact){
+    this.contactService.deleteContact(contact);
+    this.viewContacts();
+  }
+
 /* ON
   addContact() {
     ContactDialogComponent;

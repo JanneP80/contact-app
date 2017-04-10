@@ -27,15 +27,15 @@
   </md-card-content>
   <md-card-actions>
     <div>
-    <button md-icon-button (click)="removeContact()">
+    <button md-icon-button (click)="removeContact(contact)">
       <md-icon>delete</md-icon>
     </button>
-    <button md-icon-button (click)="editContact()">
+    <button md-icon-button (click)="editContact(contact)">
       <md-icon>create</md-icon>
     </button>
     </div>
 <div fxFlex fxlayout="row" fxLayoutAlign="end center">
-    <button md-icon-button (click)="showContact()">
+    <button md-icon-button (click)="showContact(contact)">
       <md-icon>place</md-icon>
     </button>
 </div>
