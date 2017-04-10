@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactService} from "../services/contact.service";
+import {Contact} from "../contact";
 // import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
 // import {ContactListComponent} from "../contact-list/contact-list.component";
 
@@ -24,7 +25,9 @@ export class ContactDialogComponent implements OnInit {
   city
   */
 
-  // subtitle='Add New Contact:';
+  subtitle='Add New Contact:';
+
+  contact:Contact;
 
   constructor() {
     /*

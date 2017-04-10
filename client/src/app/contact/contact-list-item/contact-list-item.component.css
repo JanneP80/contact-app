@@ -2,8 +2,18 @@ md-card-title {
   text-align: center;
 }
 
+.mat-card-header-text{
+  text-align: center;
+}
+
 md-card {
   width: 225px;
+
+}
+
+md-card-header{
+  background-color: dodgerblue;
+
 }
 
 .contact-header {

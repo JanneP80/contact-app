@@ -3,6 +3,7 @@ import { MdDialog } from "@angular/material";
 import { Contact } from "./contact/contact";
 import { ContactService } from "./contact/services/contact.service";
 import { ContactDialogComponent } from "./contact/contact-dialog/contact-dialog.component";
+import {DialogService} from "app/contact/services/dialog.service";
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent {
   }
    */
 
-  constructor(public dialog: MdDialog, public contactService: ContactService) {
+  constructor(public dialog: MdDialog, public contactService: ContactService, public dialogService: DialogService) {
     console.log('hi');
     /* TODO Handle ContactList here */
     this.contacts = this.contactService.findContacts();
@@ -42,7 +43,7 @@ export class AppComponent {
 
   viewContacts(){
     this.contacts = this.contactService.findContacts();
-
+    console.log('laske');
   }
 
 
@@ -50,9 +51,11 @@ export class AppComponent {
   addContact(contact) {
     this.subtitle='Add New Contact:';
     // TODO contact through dialog implementation + add to constructor
-    this.dialog.open(ContactDialogComponent);
-    this.viewContacts();
+    // this.dialog.open(ContactDialogComponent);
+    this.dialogService.contactDialog(contact);
 
+    this.viewContacts();
+    console.log('onko täällä');
   }
 
 /* TODO other logic here*/
