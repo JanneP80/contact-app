@@ -9,9 +9,10 @@ export class ContactService {
   Here is handled the communication with the storage.
 
    */
-  static id: number;
+  // private id: number;
 
   private contacts: Contact[];
+
 
   // const: (public dialog: MdDialog)
   constructor() {
@@ -25,12 +26,15 @@ export class ContactService {
 
   }
 
-  static addNewContact(firstName: any, lastName: any, phone: any, address: any, city: any){
-    //this.contacts = contacts;
-    this.id = 4;
+  public addNewContact2(id:any, firstName: any, lastName: any, phone: any, address: any, city: any){
+    // this.contacts = contacts;
+    // this.contact={firstName, lastName, phone, address, city};
+    // this.id = 4;
     // TODO store here
-    new Contact(this.id, firstName, lastName, phone, address, city);
+     this.contacts.push(new Contact(id, firstName, lastName, phone, address, city));
+    // this.id++;
     console.log(lastName);
+    console.log(this.contacts);
 
   }
 

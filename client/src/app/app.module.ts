@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
@@ -27,11 +28,10 @@ import { DialogService } from "./contact/services/dialog.service";
     FormsModule,
     HttpModule,
     MaterialModule,
+    BrowserAnimationsModule,
     FlexLayoutModule
 
   ],
- // providers: [ContactService, DialogService],
- // bootstrap: [AppComponent,ContactDialogComponent]
   providers: [ContactService, DialogService],
   bootstrap: [AppComponent],
   entryComponents: [ContactDialogComponent]
