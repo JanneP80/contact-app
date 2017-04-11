@@ -26,6 +26,7 @@ export class ContactListItemComponent implements OnInit {
   static subtitle: string;
 
   @Input() contact: [Contact];
+
   @Input() edit: EventEmitter<Contact>;
   @Input() remove: EventEmitter<Contact>;
   @Input() showOnMap: EventEmitter<Contact>;
@@ -44,14 +45,14 @@ export class ContactListItemComponent implements OnInit {
   }
 
   editContact(contact: Contact){
-    ContactListItemComponent.subtitle = 'Edit Contact';
+    // ContactListItemComponent.subtitle = 'Edit Contact';
     // this.dialog.open(ContactDialogComponent);
-    this.contactService.editContact(contact);
+    //          this.contactService.editContact(contact);
     this.edit.emit(contact);
   }
 
   removeContact(contact: Contact){
-    this.contactService.deleteContact(contact);
+    //          this.contactService.deleteContact(contact);
     this.remove.emit(contact);
   }
 

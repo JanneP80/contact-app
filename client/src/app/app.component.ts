@@ -22,6 +22,7 @@ export class AppComponent {
    */
 
   contacts: Contact[];
+  address:Contact;
 
   // selectedContact: Contact;
 
@@ -48,27 +49,63 @@ export class AppComponent {
 
 
   /* New Contact button here */
+
   addContact(contact) {
     // this.subtitle='Add New Contact:';
     // TODO contact through dialog implementation + add to constructor
     // this.dialog.open(ContactDialogComponent);
+
     this.dialogService.contactDialog(contact);
 
     this.viewContacts();
     console.log('onko täällä');
+
+   /*
+    this.dialogService.contactDialog()
+      .subscribe(contact => {
+    this.contactService.addNewContact2(contact);
+
+    };
+    */
   }
 
 /* TODO other logic here*/
+  onAddContact(){
+    this.addContact(null);
+  }
 
   onEditContact(contact: Contact) {
+    console.log('haloo editor');
+    this.addContact(contact);
+/*
+    this.dialogService.contactDialog(contact)
+      .subscribe(contact => {
+          this.contactService.editContact(contact);
+        }
+        );
+        */
+        /*
     this.addContact(contact);
     console.log('haloo');
+    */
   }
 
   onDeleteContact(contact: Contact){
+
     this.contactService.deleteContact(contact);
+
     this.viewContacts();
+
   }
+
+  onShowContactOnMap(){
+   this.dialogService.mapDialog(this.address.address);
+    //.subscribe(confirm => {
+
+      //this.contactService.deleteContact(contact)
+
+      // )}
+    };
 
 /* ON
   addContact() {

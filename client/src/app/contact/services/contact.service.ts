@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Contact } from "app/contact/contact";
 import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
 import { MdDialog } from "@angular/material";
+import {DialogService} from "./dialog.service";
+import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component";
 
 @Injectable()
 export class ContactService {
@@ -15,7 +17,7 @@ export class ContactService {
 
 
   // const: (public dialog: MdDialog)
-  constructor() {
+  constructor(public dialog: MdDialog, public dialogService: DialogService) {
 
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),
@@ -41,7 +43,11 @@ export class ContactService {
   public editContact(contact){
   // public editContact(contact){
     //TODO count position of the contact in the array based on finding contact.id
+    this.dialog.open(ContactDialogComponent);
+    // this.dialogService.contactDialog(contact);
+
     this.contacts.splice(contact.id, 1, contact);
+    console.log(contact.lastName);
     console.log(this.contacts);
   }
 
@@ -49,7 +55,9 @@ export class ContactService {
     console.log('delete', contact);
     //TODO count position of the contact in the array based on finding contact.id
     this.contacts.splice(contact.id, 1);
-    console.log('delete', contact);
+    var msgDel = 'deleted';
+    console.log(msgDel, contact);
+    return msgDel;
   }
 
   public findContacts(): Contact[]{

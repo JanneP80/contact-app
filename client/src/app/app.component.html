@@ -8,12 +8,16 @@
 
 <!-- TODO ContactList items are displayed here and REFRESH: -->
   <app-contact-list [_contacts]="contacts"
-                    (editContact)="onEditContact($event)"
-                    (removeContact)="onDeleteContact($event)"
-                    (showContactOnMap)="onShowContactOnMap($event)"
+                    (_editContact)="onEditContact($event)"
+                    (_removeContact)="onDeleteContact($event)"
+                    (_showContactOnMap)="onShowContactOnMap($event)"
   >Loading contacts...</app-contact-list>
 
-  <!--
+  <!-- TODO Corresponding methods on app.component.ts:
+                    (editContact)="onEditContact($event)" // editContact()
+                    (removeContact)="onDeleteContact($event)" // removeContact
+                    (showContactOnMap)="onShowContactOnMap($event)" // showContactOnMap
+
   <app-contact-list-item *ngFor="let contact of contacts">{{contact.firstName + ' ' + contact.lastName}}</app-contact-list-item>
   -->
   <!--
@@ -40,7 +44,7 @@
   </div>
 -->
   <div align="right">
-<button md-fab (click)="addContact()">
+<button md-fab (click)="onAddContact()">
   <md-icon>add</md-icon>
 </button>
   </div>
