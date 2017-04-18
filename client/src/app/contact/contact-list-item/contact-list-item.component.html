@@ -1,0 +1,48 @@
+<!--
+<button md-fab (click)="showContact(contact)">
+  <md-icon>place</md-icon>
+</button>
+
+<button md-fab (click)="removeContact(contact)">
+  <md-icon>delete</md-icon>
+</button>
+-->
+<div>
+<md-card>
+  <md-card-header>
+    <md-card-title>
+      Contact {{contact.id}}
+    </md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div class="contact-header">
+      {{contact.firstName + ' ' + contact.lastName}}
+    </div>
+    <div>
+      {{contact.address}}, {{contact.city}}
+    </div>
+    <div>
+      {{contact.phone}}
+    </div>
+  </md-card-content>
+  <md-card-actions>
+    <div>
+    <button md-icon-button (click)="removeContact(contact)">
+      <md-icon>delete</md-icon>
+    </button>
+    <button md-icon-button (click)="editContact(contact)">
+      <md-icon>create</md-icon>
+    </button>
+    </div>
+<div fxFlex fxlayout="row" fxLayoutAlign="end center">
+    <button md-icon-button (click)="showContact(contact)">
+      <md-icon>place</md-icon>
+    </button>
+</div>
+  </md-card-actions>
+
+</md-card>
+</div>
+<br>
+<!--
+-->

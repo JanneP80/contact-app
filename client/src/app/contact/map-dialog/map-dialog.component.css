@@ -1,0 +1,11 @@
+iframe {
+  height: 400px;
+  width: 400px;
+  border: 0;
+}
+
+#mapClose{
+  margin: 10px 0 0 0 ;
+  background-color: #f1d941;
+  color: #504b2b;
+}
