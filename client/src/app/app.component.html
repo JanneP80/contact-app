@@ -7,10 +7,10 @@
 </h1>
 
 <!-- TODO ContactList items are displayed here and REFRESH: -->
-  <app-contact-list [_contacts]="contacts"
-                    (_editContact)="onEditContact($event)"
-                    (_removeContact)="onDeleteContact($event)"
-                    (_showContactOnMap)="onShowContactOnMap($event)"
+  <app-contact-list [contacts]="contacts"
+                    (editContact)="onEditContact($event)"
+                    (removeContact)="onDeleteContact($event)"
+                    (showContactOnMap)="onShowContactOnMap($event)"
   >Loading contacts...</app-contact-list>
 
   <!-- TODO Corresponding methods on app.component.ts:

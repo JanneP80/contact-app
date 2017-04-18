@@ -22,113 +22,63 @@ export class AppComponent {
    */
 
   contacts: Contact[];
-  address:Contact;
-
-  // selectedContact: Contact;
-
+  // address:Contact;
+ // editOrNot: boolean;
   title = 'Contacts:';
-  // subtitle='Add New Contact:';
-  // firstname: string;
-  /*
-  constructor(){
-    console.log('hi');
 
-  }
-   */
-
-  constructor(public dialog: MdDialog, public contactService: ContactService, public dialogService: DialogService) {
-    console.log('hi');
+  constructor(public contactService: ContactService, public dialogService: DialogService) {
     /* TODO Handle ContactList here */
     this.contacts = this.contactService.findContacts();
   }
 
   viewContacts(){
     this.contacts = this.contactService.findContacts();
-    console.log('laske');
+    console.log('view Now');
   }
 
-
-  /* New Contact button here */
-
-  addContact(contact) {
-    // this.subtitle='Add New Contact:';
-    // TODO contact through dialog implementation + add to constructor
-    // this.dialog.open(ContactDialogComponent);
-
-    this.dialogService.contactDialog(contact);
-
-    this.viewContacts();
-    console.log('onko täällä');
-
-   /*
-    this.dialogService.contactDialog()
-      .subscribe(contact => {
-    this.contactService.addNewContact2(contact);
-
-    };
-    */
+// localStorage.clear("ca-contacts");
+/*
+  editing(editOrNot) {
+    if (editOrNot === true) {
+      return 'Edit contact';
+    }
+    else {
+      return 'Add contact';
+    }
+  }
+*/
+  /*Call Add and Edit */
+  addEditContact(contact) {
+    this.dialogService.contactDialog(contact)
+    .subscribe(contact => {
+        if (contact) {
+          console.log(contact);
+          this.contactService.saveContact(contact);
+          this.viewContacts();
+        }
+      }
+    );
+    // this.viewContacts();
   }
 
-/* TODO other logic here*/
+/* other logic here*/
   onAddContact(){
-    this.addContact(null);
+    // this.editOrNot = false;
+    this.addEditContact(null);
   }
 
   onEditContact(contact: Contact) {
-    console.log('haloo editor');
-    this.addContact(contact);
-/* TODO tähän tyyliin jatkettava
-    this.dialogService.contactDialog(contact)
-      .subscribe(contact => {
-          this.contactService.editContact(contact);
-        }
-        );
-        */
-        /*
-    this.addContact(contact);
-    console.log('haloo');
-    */
+    // this.editOrNot = true;
+    this.addEditContact(contact);
   }
 
   onDeleteContact(contact: Contact){
-
     this.contactService.deleteContact(contact);
-
     this.viewContacts();
-
   }
 
-  onShowContactOnMap(){
-   this.dialogService.mapDialog(this.address.address);
-    //.subscribe(confirm => {
+  onShowContactOnMap() {
 
-      //this.contactService.deleteContact(contact)
-
-      // )}
-    };
-
-/* ON
-  addContact() {
-    ContactDialogComponent;
-
+    // this.dialogService.mapDialog(this.address.address)
   }
-
-  constructor(contactService: ContactService){
-    this.contacts = contactService.findContacts();
-
-  }
-
-  contactSelected(contact: Contact){
-    this.selectedContact = contact;
-
-  }
-
-  */
-/*
-  MdDialog
-
-  contactDialog(){
-    this.contactDialog = contact;
-  }
-  */
 }

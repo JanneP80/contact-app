@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Contact } from "app/contact/contact";
-import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
-import { MdDialog } from "@angular/material";
-import {DialogService} from "./dialog.service";
-import {ContactDialogComponent} from "../contact-dialog/contact-dialog.component";
+import { LocalstorageService } from "app/contact/services/localstorage.service";
 
 @Injectable()
 export class ContactService {
@@ -11,14 +8,24 @@ export class ContactService {
   Here is handled the communication with the storage.
 
    */
-  // private id: number;
+    constructor(public localStorage: LocalstorageService) {
+    }
 
-  private contacts: Contact[];
+  public findContacts(){
+     return this.localStorage.readContactsLocalStorage();
+  }
 
+  public saveContact(contact:Contact){
+    console.log('--- HERE ---');
+    return this.localStorage.saveContact(contact);
+  }
 
-  // const: (public dialog: MdDialog)
-  constructor(public dialog: MdDialog) {
+  public deleteContact(contact:Contact){
+    console.log('--- WHERE ---');
+    return this.localStorage.deleteContact(contact);
+  }
 
+    /*
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),
       new Contact(1, 'Mörkö', 'Pötkö',23445,'jaappani'),
@@ -27,7 +34,8 @@ export class ContactService {
     ];
 
   }
-
+*/
+    /*
   public addNewContact2(id:any, firstName: any, lastName: any, phone: any, address: any, city: any){
     // this.contacts = contacts;
     // this.contact={firstName, lastName, phone, address, city};
@@ -43,7 +51,8 @@ export class ContactService {
   public editContact(contact){
   // public editContact(contact){
     //TODO count position of the contact in the array based on finding contact.id
-    this.dialog.open(ContactDialogComponent);
+    //this.dialog.open(ContactDialogComponent);
+
     // this.dialogService.contactDialog(contact);
 
     this.contacts.splice(contact.id, 1, contact);
@@ -67,5 +76,6 @@ export class ContactService {
 
   }
 
+  */
 
 }

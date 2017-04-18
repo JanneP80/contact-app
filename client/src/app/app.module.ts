@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
 import { ContactService } from "./contact/services/contact.service";
+import { LocalstorageService } from "./contact/services/localstorage.service";
 
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
 import { DialogService } from "./contact/services/dialog.service";
@@ -34,8 +35,8 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
     FlexLayoutModule
 
   ],
-  providers: [ContactService, DialogService],
+  providers: [ContactService, DialogService, LocalstorageService],
   bootstrap: [AppComponent],
-  entryComponents: [ContactDialogComponent]
+  entryComponents: [ContactDialogComponent,MapDialogComponent]
 })
 export class AppModule { }

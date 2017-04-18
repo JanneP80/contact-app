@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
-import {Contact} from "../contact";
-import {MdDialog} from '@angular/material';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Contact } from "../contact";
+// import {MdDialog} from '@angular/material';
 // import {ContactDialog} from '../contact-dialog/contact-dialog.component'
 
 @Component({
@@ -10,50 +10,17 @@ import {MdDialog} from '@angular/material';
 })
 export class ContactListComponent implements OnInit {
 
-  @Input() private _contacts: [Contact];
-  @Output() select: EventEmitter<Contact>;
-
-  @Output() private _editContact: EventEmitter<Contact>;
-  @Output() private _removeContact: EventEmitter<Contact>;
-  @Output() private _showContactOnMap: EventEmitter<Contact>;
-
-  get editContact(): EventEmitter<Contact> {
-    return this._editContact;
-  }
-
-  set editContact(value: EventEmitter<Contact>) {
-    this._editContact = value;
-  }
-
-  get contacts(): [Contact] {
-    return this._contacts;
-  }
-
-  set contacts(value: [Contact]) {
-    this._contacts = value;
-  }
-
-  get removeContact(): EventEmitter<Contact> {
-    return this._removeContact;
-  }
-
-  set removeContact(value: EventEmitter<Contact>) {
-    this._removeContact = value;
-  }
-
-  get showContactOnMap(): EventEmitter<Contact> {
-    return this._showContactOnMap;
-  }
-
-  set showContactOnMap(value: EventEmitter<Contact>) {
-    this._showContactOnMap = value;
-  }
+  @Input()  contacts: [Contact];
+  // @Output() select: EventEmitter<Contact>;
+  @Output()  editContact: EventEmitter<Contact>;
+  @Output()  removeContact: EventEmitter<Contact>;
+  @Output()  showContactOnMap: EventEmitter<Contact>;
 
   constructor() {
-    this.select = new EventEmitter();
-    this._editContact = new EventEmitter();
-    this._removeContact = new EventEmitter();
-    this._showContactOnMap = new EventEmitter();
+    // this.select = new EventEmitter();
+    this.editContact = new EventEmitter();
+    this.removeContact = new EventEmitter();
+    this.showContactOnMap = new EventEmitter();
   }
 
   ngOnInit() {
