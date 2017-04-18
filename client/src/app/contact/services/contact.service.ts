@@ -17,7 +17,7 @@ export class ContactService {
 
 
   // const: (public dialog: MdDialog)
-  constructor(public dialog: MdDialog, public dialogService: DialogService) {
+  constructor(public dialog: MdDialog) {
 
     this.contacts = [
       new Contact(0, 'Vesa', 'Heimo', 234, 'kanata'),

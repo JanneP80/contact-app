@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from "../services/contact.service";
 import {Contact} from "../contact";
-import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
+//import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
 // import {ContactListItemComponent} from "../contact-list-item/contact-list-item.component";
 // import {ContactListComponent} from "../contact-list/contact-list.component";
 
@@ -11,7 +11,7 @@ import {ContactListItemComponent} from "../contact-list-item/contact-list-item.c
   styleUrls: ['./contact-dialog.component.css']
 })
 export class ContactDialogComponent implements OnInit {
-  ContactService: any;
+
 /*
   firstName: string;
   lastName: string;
@@ -28,7 +28,7 @@ export class ContactDialogComponent implements OnInit {
   */
 
   //subtitle='Add New Contact:';
-  static id: number = 4;
+  id: number = 4;
   contact:Contact;
   // subtitle:subtitle;
   public subtitle: string ='Add New Contact:';
@@ -57,8 +57,8 @@ export class ContactDialogComponent implements OnInit {
     console.log(firstName);
 
     // this.subtitle = ContactListItemComponent.subtitle;
-    this.contactService.addNewContact2(ContactDialogComponent.id,firstName, lastName, phone, address, city);
-    ContactDialogComponent.id++;
+    //this.contactService.addNewContact2(this.id,firstName, lastName, phone, address, city);
+    this.id++;
   }
 /*
   editContact(firstName?, lastName?, phone?, address?, city?){

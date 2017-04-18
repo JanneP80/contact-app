@@ -76,17 +76,14 @@ export class AppComponent {
 
   onEditContact(contact: Contact) {
     console.log('haloo editor');
-    // this.addContact(contact);
-    // todo del old
-
+    this.addContact(contact);
+/* TODO tähän tyyliin jatkettava
     this.dialogService.contactDialog(contact)
       .subscribe(contact => {
           this.contactService.editContact(contact);
         }
         );
-
-    this.contactService.deleteContact(contact);
-    this.viewContacts();
+        */
         /*
     this.addContact(contact);
     console.log('haloo');
