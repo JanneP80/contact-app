@@ -1,3 +1,20 @@
-<div>
-  <router-outlet></router-outlet>
-</div>
+
+<md-sidenav-container fxFlexFill.gt-md>
+
+
+<!--  <md-sidenav-container> -->
+    <md-sidenav #startSidenavRef mode="over" align="start" opened (open)="doOnOpen">
+      Start sidenav content
+    </md-sidenav>
+    <md-sidenav #endSidenavRef mode="over" align="end" opened (open)="doOnOpen">
+      End sidenav content
+    </md-sidenav>
+    <!-- Body -->
+
+  <!--  </md-sidenav-container>  -->
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  </md-sidenav-container>
