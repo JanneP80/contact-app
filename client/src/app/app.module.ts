@@ -18,6 +18,26 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { AddressPipe } from './contact/pipes/address.pipe';
 
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './contact/user/login/login.component';
+import { ContactComponent } from './contact/contact/contact.component';
+
+
+const routes = [
+  {
+    path: '',
+    redirectTo: 'contacts',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'contacts',
+    component: ContactComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -26,8 +46,9 @@ import { AddressPipe } from './contact/pipes/address.pipe';
     ContactListItemComponent,
     ContactDialogComponent,
     MapDialogComponent,
-    AddressPipe
-
+    AddressPipe,
+    LoginComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +57,8 @@ import { AddressPipe } from './contact/pipes/address.pipe';
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    NgPipesModule
+    NgPipesModule,
+    RouterModule.forRoot(routes)
 
   ],
   providers: [ContactService, DialogService, LocalstorageService],

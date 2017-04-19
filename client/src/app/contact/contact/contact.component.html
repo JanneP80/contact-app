@@ -1,0 +1,32 @@
+<div class="contactList">
+
+  <div class="contactList-item">
+
+    <h1>
+      {{title}}
+    </h1>
+
+    <!-- TODO ContactList items are displayed here and REFRESH: -->
+    <app-contact-list [contacts]="contacts"
+                      (editContact)="onEditContact($event)"
+                      (removeContact)="onDeleteContact($event)"
+                      (showContactOnMap)="onShowContactOnMap($event)"
+    >Loading contacts...</app-contact-list>
+
+    <!-- TODO Corresponding methods on app.component.ts:
+                      (editContact)="onEditContact($event)" // editContact()
+                      (removeContact)="onDeleteContact($event)" // removeContact
+                      (showContactOnMap)="onShowContactOnMap($event)" // showContactOnMap
+
+    <app-contact-list-item *ngFor="let contact of contacts">{{contact.firstName + ' ' + contact.lastName}}</app-contact-list-item>
+    -->
+
+    <div align="right">
+      <button md-fab (click)="onAddContact()">
+        <md-icon>add</md-icon>
+      </button>
+    </div>
+
+  </div>
+</div>
+
