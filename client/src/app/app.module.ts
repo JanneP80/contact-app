@@ -15,6 +15,8 @@ import { LocalstorageService } from './contact/services/localstorage.service';
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
 import { DialogService } from './contact/services/dialog.service';
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
+import { NgPipesModule } from 'ngx-pipes';
+import { AddressPipe } from './contact/pipes/address.pipe';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
     ContactListComponent,
     ContactListItemComponent,
     ContactDialogComponent,
-    MapDialogComponent
+    MapDialogComponent,
+    AddressPipe
 
   ],
   imports: [
@@ -32,7 +35,8 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgPipesModule
 
   ],
   providers: [ContactService, DialogService, LocalstorageService],
