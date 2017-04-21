@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Contact } from "app/contact/contact";
-import { LocalstorageService } from "app/contact/services/localstorage.service";
+import { Contact } from 'app/contact/contact';
+import { LocalstorageService } from 'app/contact/services/localstorage.service';
+import { ContactApiService } from "./contact-api.service";
+// import { environment } from "../../../environments/environment.local";
+import { ContactStorage } from "./contact-storage";
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class ContactService {
@@ -8,21 +12,28 @@ export class ContactService {
   Here is handled the communication with the storage.
 
    */
-    constructor(public localStorage: LocalstorageService) {
+  contactStorage : ContactStorage;
+
+    constructor(private contactApi: ContactApiService, public localStorage: LocalstorageService) {
+      // console.log(environment);
+      // this.contactStorage = environment.endpointUrl ? contactApi : localStorage;
     }
 
-  public findContacts(){
-     return this.localStorage.readContactsLocalStorage();
+  public findContacts() {
+    // return this.localStorage.readContactsLocalStorage();
+    return this.contactApi.readContactsApi();
   }
 
-  public saveContact(contact:Contact){
+  public saveContact(contact: Contact) {
     console.log('--- HERE ---');
-    return this.localStorage.saveContact(contact);
+    // return this.localStorage.saveContact(contact);
+    return this.contactApi.saveContactsApi(contact);
   }
 
-  public deleteContact(contact:Contact){
+  public deleteContact(contact: Contact) {
     console.log('--- WHERE ---');
-    return this.localStorage.deleteContact(contact);
+    // return this.localStorage.deleteContact(contact);
+    return this.contactApi.deleteContactApi(contact);
   }
 
     /*

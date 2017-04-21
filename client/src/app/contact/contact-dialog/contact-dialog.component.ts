@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { ContactService } from "../services/contact.service";
-import { Contact } from "../contact";
-import { MdDialogRef } from "@angular/material";
+import { Contact } from '../contact';
+import { MdDialogRef } from '@angular/material';
 // import { DialogService } from "../services/dialog.service";
 
 @Component({
@@ -10,10 +10,10 @@ import { MdDialogRef } from "@angular/material";
   styleUrls: ['./contact-dialog.component.css']
 })
 export class ContactDialogComponent implements OnInit {
-  //subtitle='Add New Contact:';
+  // subtitle='Add New Contact:';
 
   contact: Contact;
-  subtitle:string;
+  subtitle: string;
   // public subtitle: string = 'Add New Contact:';
 
   constructor(public dialog: MdDialogRef<ContactDialogComponent>) {
@@ -21,7 +21,7 @@ export class ContactDialogComponent implements OnInit {
 
   addNewContact() {
     // this.subtitle = ContactListItemComponent.subtitle;
-    //this.contactService.addNewContact2(this.id,firstName, lastName, phone, address, city);
+    // this.contactService.addNewContact2(this.id,firstName, lastName, phone, address, city);
     this.dialog.close(this.contact);
   }
 

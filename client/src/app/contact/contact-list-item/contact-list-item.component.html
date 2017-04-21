@@ -10,7 +10,7 @@
 <div>
 <md-card>
   <md-card-header>
-    <md-card-title>
+    <md-card-title fxFlexAlign="center" class="mat-card-header-text">
       Contact {{contact.id}}
     </md-card-title>
   </md-card-header>
@@ -19,7 +19,7 @@
       {{contact.firstName + ' ' + contact.lastName}}
     </div>
     <div>
-      {{contact.address}}, {{contact.city}}
+      {{contact | contactAddress}}
     </div>
     <div>
       {{contact.phone}}

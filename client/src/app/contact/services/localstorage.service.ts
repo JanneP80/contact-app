@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Contact } from "app/contact/contact";
-import * as _ from "lodash";
+import { Contact } from 'app/contact/contact';
+import * as _ from 'lodash';
+import {ContactStorage} from "./contact-storage";
 
 @Injectable()
-export class LocalstorageService {
+export class LocalstorageService implements ContactStorage {
 
   private localStorageKey = 'ca-contacts';
 
@@ -26,7 +27,7 @@ export class LocalstorageService {
     let contacts = this.readContactsLocalStorage();
     if (!contact.id) {
       let lastSaved = <Contact>_.maxBy(contacts, 'id');
-      //if lastSaved exists then lastsaved.id + 1, if no lastSaved then contact.id == 1
+      // if lastSaved exists then lastsaved.id + 1, if no lastSaved then contact.id == 1
       contact.id = lastSaved ? lastSaved.id + 1 : 1;
       contacts.push(contact);
     } else {
@@ -38,11 +39,13 @@ export class LocalstorageService {
   }
 
   readContactsLocalStorage(){
+
+   // findAllContacts(){
     let data = localStorage.getItem(this.localStorageKey);
     return JSON.parse(data);
   }
 
-  private writeLocalStorageContacts(contacts) {
+   writeLocalStorageContacts(contacts) {
     contacts = JSON.stringify(contacts);
     localStorage.setItem(this.localStorageKey, contacts);
   }

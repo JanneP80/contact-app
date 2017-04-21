@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using WebApi.Models;
 
-namespace WebApi
+namespace ContactsWebApp
 {
     public class Startup
     {
@@ -32,7 +30,7 @@ namespace WebApi
             // Add framework services.
             services.AddMvc();
 
-            // Add service and create Policy with options
+            //Enable cross-origin requests and allow all origins/methods/headers/credentials used
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -41,11 +39,6 @@ namespace WebApi
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-            
-            services.AddDbContext<WebContext>(opt => opt.UseInMemoryDatabase());
-            
-            services.AddSingleton<IWebRepository, WebRepository>();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,18 +46,8 @@ namespace WebApi
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            // global policy - assign here or on each controller
-            app.UseCors("CorsPolicy");
+            
             app.UseMvc();
-            /*
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-            */
         }
     }
 }

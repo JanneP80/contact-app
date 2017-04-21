@@ -4,3 +4,6 @@
 /server/WebApi/WebApi/obj
 /server/WebApi/WebApi/WebApi.csproj.user
 /client/*.iml
+/server/ContactsWebApp/ContactsWebApp/bin
+/server/ContactsWebApp/ContactsWebApp/obj
+/server/ContactsWebApp/ContactsWebApp/wwwroot

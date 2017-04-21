@@ -9,13 +9,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact/contact-list-item/contact-list-item.component';
-import { ContactService } from "./contact/services/contact.service";
-import { LocalstorageService } from "./contact/services/localstorage.service";
+import { ContactService } from './contact/services/contact.service';
+import { LocalstorageService } from './contact/services/localstorage.service';
 
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
-import { DialogService } from "./contact/services/dialog.service";
+import { DialogService } from './contact/services/dialog.service';
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
+import { NgPipesModule } from 'ngx-pipes';
+import { AddressPipe } from './contact/pipes/address.pipe';
 
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './contact/user/login/login.component';
+import { ContactComponent } from './contact/contact/contact.component';
+import { ContactApiService } from './contact/services/contact-api.service';
+
+const routes = [
+  {
+    path: '',
+    // redirectTo: 'contacts',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'contacts',
+    component: ContactComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -23,8 +46,10 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
     ContactListComponent,
     ContactListItemComponent,
     ContactDialogComponent,
-    MapDialogComponent
-
+    MapDialogComponent,
+    AddressPipe,
+    LoginComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +57,13 @@ import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgPipesModule,
+    RouterModule.forRoot(routes)
 
   ],
-  providers: [ContactService, DialogService, LocalstorageService],
+  providers: [ContactService, DialogService, LocalstorageService, ContactApiService],
   bootstrap: [AppComponent],
-  entryComponents: [ContactDialogComponent,MapDialogComponent]
+  entryComponents: [ContactDialogComponent, MapDialogComponent]
 })
 export class AppModule { }

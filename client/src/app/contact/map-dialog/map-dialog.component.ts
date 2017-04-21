@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contact } from "../contact";
-
+// import { Contact } from '../contact';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-map-dialog',
@@ -9,13 +9,17 @@ import { Contact } from "../contact";
 })
 export class MapDialogComponent implements OnInit {
 
-  contact:Contact;
-  address:Contact;
+  // contact: Contact;
+  address;
+  url;
 
+  constructor(public sanitizer: DomSanitizer) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  bypassSecurityTrustResourceUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
+  ngOnInit() {
+    this.url = 'http://www.google.com/maps?output=embed&q=' + this.address;
+  }
 }
