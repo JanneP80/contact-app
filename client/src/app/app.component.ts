@@ -32,6 +32,14 @@ export class AppComponent implements OnInit {
     this.sidenav.toggle(this.sidenav._isClosed);
   }
 
+  navigateToLogin(){
+    this.router.navigate([('/login')]);
+  }
+
+  navigateToContacts(){
+    this.router.navigate([('/contacts')]);
+  }
+
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
