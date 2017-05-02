@@ -7,3 +7,9 @@
 /server/ContactsWebApp/ContactsWebApp/bin
 /server/ContactsWebApp/ContactsWebApp/obj
 /server/ContactsWebApp/ContactsWebApp/wwwroot
+/cordova/plugins
+/cordova/www
+/cordova/.idea
+/cordova/gen
+/cordova/platforms/android
+/cordova/platforms/browser
