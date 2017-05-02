@@ -1,7 +1,12 @@
 <div fxLayoutAlign="center center">
 <md-card class="login-card" fxLayout="column" fxLayoutAlign="center center">
+  <md-card-header class="ca-color-primary">
+    <md-card-title fxFlexAlign="center">
+       Contacts Application Login
+    </md-card-title>
+    </md-card-header>
   <md-card-content fxLayout="column" fxLayoutAlign="center start">
-
+<br>
     <div fxLayout="row" fxLayoutAlign="start center">
       <md-icon class="material-icons color md-36 login-icon-padding">account_circle</md-icon>
       <md-input-container>
@@ -18,7 +23,7 @@
 
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-    <button md-fab (click)="loginOK()">Login</button>
+    <button md-fab (click)="loginOK(userName)">Login</button>
   </md-card-actions>
 </md-card>
 </div>

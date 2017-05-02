@@ -7,3 +7,10 @@
 .login-icon-padding{
   padding-right: 20px;
 }
+
+.mat-card-header{
+  padding-top: 12px;
+
+  color: azure;
+
+}

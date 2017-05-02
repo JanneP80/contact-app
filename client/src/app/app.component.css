@@ -2,3 +2,9 @@ md-divider {
   align-content: center;
   padding-left: 12px;
 }
+
+.ca-sidenav-content {
+  background-color: dodgerblue;
+  color: #373f48;
+}
+

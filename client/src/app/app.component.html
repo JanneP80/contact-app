@@ -1,15 +1,37 @@
 
-<md-sidenav-container fullscreen>
-  <md-sidenav #start>
+<md-sidenav-container fullscreen class="mat-light-theme">
+  <md-sidenav *ngIf="!toolbarVisible" #sidenav [mode]="sidenavMode"
+              [opened]="sidenavMode == 'side'"
+              align="start">
+      <div  class="ca-sidenav-content">
+        <md-icon style="width: 80px; height: 80px; font-size: 80px">account_circle</md-icon>
+        <br>
+        Logged in as:
+        <br>
+        {{loginName}}
+        <!-- {{user.userName}} -->
+        <!--<textarea md-tab-item="text" [(ngModel)]="user.userName" type="text" required
+               placeholder="User name">
+         <textarea ng-model="user.userName"> -->
+        <!-- <div>{{user.userName}}</div>
+         #start
+         User {{user.userName ? 'on user' : 'ei oo user'}}
+        -->
+
+      </div>
+    <hr>
     <md-nav-list>
-      <a md-list-item routerLink="/login" (click)="start.close()">Login</a>
+      <a md-list-item routerLink="/login" (click)="start.close()" [appVibrate]="">Logout</a>
       <a md-list-item routerLink="/contacts" (click)="start.close()">Contacts</a>
     </md-nav-list>
     <hr>
-    <button md-button (click)="start.close()">CLOSE</button>
+    <!-- <button md-button (click)="start.close()">Settings</button> -->
   </md-sidenav>
-  <md-toolbar color="primary">
-    <button md-icon-button (click)="start.open()">
+
+  <md-toolbar *ngIf="!toolbarVisible" color="primary">
+
+   <!-- <button md-icon-button (click)="start.open()"> -->
+    <button md-icon-button (click)="toggleSideNav()">
       <md-icon>menu</md-icon>
     </button>
     <md-divider> {{ title }} </md-divider>

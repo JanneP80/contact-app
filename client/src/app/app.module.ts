@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './contact/user/login/login.component';
 import { ContactComponent } from './contact/contact/contact.component';
 import { ContactApiService } from './contact/services/contact-api.service';
+import { VibrateDirective } from './contact/directives/vibrate.directive';
 
 const routes = [
   {
@@ -49,7 +50,8 @@ const routes = [
     MapDialogComponent,
     AddressPipe,
     LoginComponent,
-    ContactComponent
+    ContactComponent,
+    VibrateDirective
   ],
   imports: [
     BrowserModule,
