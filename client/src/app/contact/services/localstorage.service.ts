@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Contact } from 'app/contact/contact';
 import * as _ from 'lodash';
 import {ContactStorage} from "./contact-storage";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class LocalstorageService implements ContactStorage {
@@ -21,6 +22,7 @@ export class LocalstorageService implements ContactStorage {
     });
     this.writeLocalStorageContacts(contacts);
     alert('Contact deleted.');
+    return Observable.of(contacts);
   }
 
   saveContact(contact){
@@ -36,13 +38,19 @@ export class LocalstorageService implements ContactStorage {
       });
     }
     this.writeLocalStorageContacts(contacts);
+    return Observable.of(contacts);
   }
 
   readContactsLocalStorage(){
-
-   // findAllContacts(){
+   // previously just findAllContacts(){
     let data = localStorage.getItem(this.localStorageKey);
     return JSON.parse(data);
+    // observable että voi käyttää suoraan webapi/localstorage tiloissa
+  }
+
+  findAllContacts(){
+    let contacts = this.readContactsLocalStorage();
+    return Observable.of(contacts);
   }
 
    writeLocalStorageContacts(contacts) {
