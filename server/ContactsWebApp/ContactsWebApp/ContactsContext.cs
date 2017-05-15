@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using ContactsWebApp.Models;
 using Microsoft.ApplicationInsights.Extensibility.Implementation;
 
@@ -23,8 +22,15 @@ namespace ContactsWebApp
         }
         
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<User> User { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Contact>().ToTable("Contact");
+            modelBuilder.Entity<User>().ToTable("User");
+        }
     }
+
     /*
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContactsWebApp.Repository;
+using ContactsWebApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,11 @@ namespace ContactsWebApp
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
 
             //Enable cross-origin requests and allow all origins/methods/headers/credentials used
             services.AddCors(options =>

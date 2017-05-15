@@ -23,7 +23,7 @@ import { LoginComponent } from './contact/user/login/login.component';
 import { ContactComponent } from './contact/contact/contact.component';
 import { ContactApiService } from './contact/services/contact-api.service';
 import { VibrateDirective } from './contact/directives/vibrate.directive';
-import { CcontactListItemComponent } from './contact/contact-list-item/ccontact-list-item/ccontact-list-item.component';
+// import { CcontactListItemComponent } from './contact/contact-list-item/ccontact-list-item/ccontact-list-item.component';
 
 const routes = [
   {
@@ -53,7 +53,7 @@ const routes = [
     LoginComponent,
     ContactComponent,
     VibrateDirective,
-    CcontactListItemComponent
+    // CcontactListItemComponent
   ],
   imports: [
     BrowserModule,

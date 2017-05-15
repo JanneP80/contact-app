@@ -14,8 +14,46 @@ namespace ContactsWebApp.Controllers
     [Route("api/contacts")]
     public class ContactsController : Controller
     {
-        //private readonly IContactService _contactService;
+        private readonly IContactService _contactService;
 
+
+        public ContactsController(IContactService contactService)
+        {
+            _contactService = contactService;
+        }
+
+        [HttpGet]
+        public List<Contact> Get()
+        {
+            return _contactService.FindAllContacts();
+        }
+
+        [HttpGet("{id}")]
+        public Contact Get(int id)
+        {
+            return _contactService.FindContactById(id);
+        }
+
+        [HttpPost]
+        public void Create([FromBody]Contact contact)
+        {
+            _contactService.CreateContact(contact);
+        }
+
+        [HttpPut("{id}")]
+        public void Update(int id, [FromBody]Contact contact)
+        {
+            _contactService.UpdateContact(contact);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            _contactService.DeleteContact(id);
+        }
+
+        //private readonly IContactService _contactService;
+        /*
         private static ContactService _contactService = new ContactService();
 
 
@@ -53,5 +91,6 @@ namespace ContactsWebApp.Controllers
         {
             _contactService.DeleteContact(id);
         }
+        */
     }
 }

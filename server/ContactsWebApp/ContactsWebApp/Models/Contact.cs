@@ -24,6 +24,10 @@ namespace ContactsWebApp.Models
             _city = city;
         }
 
+        public Contact()
+        {
+        }
+
         [Key]
         public int Id
         {

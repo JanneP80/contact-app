@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContactsWebApp.Models;
 
 namespace ContactsWebApp.Repository
 {
-    public class IUserRepository
+    public interface IUserRepository
     {
+        User FindByUsername(string username);
+        User FindByUsernameAndPassword(string username, string password);
     }
 }

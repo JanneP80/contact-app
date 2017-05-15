@@ -6,7 +6,7 @@ using ContactsWebApp.Models;
 
 namespace ContactsWebApp.Repository
 {
-    public class IContactRepository
+    public interface IContactRepository
     {
         List<Contact> FindAll();
         Contact FindById(int id);
