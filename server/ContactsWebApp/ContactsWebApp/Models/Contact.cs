@@ -1,9 +1,11 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace ContactsWebApp.Models
 {
     public class Contact
     {
-        
+        [Key]
         private int _id;
         private string _firstName;
         private string _lastName;
@@ -22,6 +24,7 @@ namespace ContactsWebApp.Models
             _city = city;
         }
 
+        [Key]
         public int Id
         {
             get { return _id; }
