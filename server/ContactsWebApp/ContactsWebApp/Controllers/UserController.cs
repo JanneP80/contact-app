@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using ContactsWebApp.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsWebApp.Controllers
 {
-        [Route("api/user")]
-        [Authorize("Bearer")]
+    [EnableCors("CorsPolicy")]
+    [Route("api/user")]
+    [Authorize("Bearer")]
         public class UserController : Controller
         {
             private readonly IUserService _userService;

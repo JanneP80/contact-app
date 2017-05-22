@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {User} from "../user";
+import { User } from "../user";
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -14,17 +15,22 @@ export class LoginComponent implements OnInit {
   */
   user: User;
 
-  constructor(private router: Router) {
+  constructor(private userService: UserService, private router: Router) {
     this.user = new User();
   }
 
   ngOnInit() {
+    this.user = new User();
   }
 
   loginOK() {
+    console.log('logged in as: ', this.user.username);
+    this.userService.login(this.user.username, this.user.password).subscribe(() => {
+      // if (this.user.firstName === 'Admin') {
 
-    console.log('logged in as: ', this.user.userName);
+      this.router.navigate(['/contacts']);
+//    }
 
-    this.router.navigate(['/contacts']);
+    });
   }
 }

@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using ContactsWebApp.Config;
 using ContactsWebApp.Controllers.Communication;
 using ContactsWebApp.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContactsWebApp.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/authentication")]
     public class AuthenticationController
     {
@@ -26,7 +28,7 @@ namespace ContactsWebApp.Controllers
         {
             var user = _userService.FindUserByUsernameAndPassword(authRequest.Username, authRequest.Password);
             // if (user == null) return Unauthorized();
-            if (user == null) return null; // TODO fixit
+            if (user == null) return new UnauthorizedResult(); // TODO fixit Unauthorized()
             var token = TokenBuilder.Build(user);
             return new JsonResult(new AuthResponse(user.Id.ToString(), token));
         }

@@ -77,8 +77,8 @@ namespace ContactsWebApp
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            
-            app.UseMvc();
+
+            app.UseCors("CorsPolicy");
 
             // TODO Authentification init
             app.UseJwtBearerAuthentication(new JwtBearerOptions()
@@ -103,6 +103,8 @@ namespace ContactsWebApp
                     ClockSkew = TimeSpan.FromMinutes(0)
                 }
             });
+
+            app.UseMvc();
 
             // Database initialization
             var context = app.ApplicationServices.GetService<ContactsContext>();

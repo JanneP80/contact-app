@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 // import { MdDialog } from "@angular/material";
 // import { ContactDialogComponent } from "./contact/contact-dialog/contact-dialog.component";
-import { User } from './contact/user/user';
+ import { User } from './contact/user/user';
 import {NavigationEnd, Router} from "@angular/router";
 import {MdSidenav} from "@angular/material";
 import * as _ from "lodash";
@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
 
   title = 'Contacts Application';
   // loginName = User.userName;
-  loginName = 'Undefined';
+  // loginName = 'Undefined';
+  firstName;
 
   toolbarVisible: boolean;
   sidenavMode: string;
