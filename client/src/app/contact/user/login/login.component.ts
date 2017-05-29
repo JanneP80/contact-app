@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from "../user";
 import { UserService } from "../services/user.service";
+// import {click} from "../../contact-list-item/contact-list-item.component.spec";
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
+  }
+
+  nextField(event){
+    // console.log(event);
+
+    if (event.keyCode === 13){
+      // document.getElementById('login');
+
+      if (this.user.username && this.user.password) {
+        this.loginOK();
+      } else if (this.user.username) {
+        document.getElementById('password').focus();
+
+      }else if (this.user.password) {
+        document.getElementById('username').focus();
+
+      }
+
+    }
+
   }
 
   loginOK() {

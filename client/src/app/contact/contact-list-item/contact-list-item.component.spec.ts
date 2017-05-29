@@ -1,3 +1,4 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactListItemComponent } from './contact-list-item.component';
@@ -8,8 +9,9 @@ export const ButtonClickEvents = {
   left:  { button: 0 },
   right: { button: 2 }
 };
-
+*/
 /** Simulate element click. Defaults to mouse left-button click event. */
+/*
 export function click(el: DebugElement | HTMLElement, eventObj: any = ButtonClickEvents.left): void {
   if (el instanceof HTMLElement) {
     el.click();
@@ -47,6 +49,9 @@ describe('ContactListItemComponent', () => {
     click(contact);   // triggerEventHandler helper
     expect(selectedContact).toBe(expectedContact);
     */
+
+/*
   })
 
 });
+*/

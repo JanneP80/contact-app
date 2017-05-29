@@ -1,4 +1,4 @@
-
+﻿
 <div fxLayout="column" fxLayoutAlign="space-around center"  *ngFor="let contact of contacts | orderBy: 'lastName'">
 
   <app-contact-list-item [contact]="contact" [edit]="editContact" [remove]="removeContact" [showOnMap]="showContactOnMap">Loading contact list item...</app-contact-list-item>
