@@ -5,6 +5,8 @@ export interface ContactStorage {
 
   saveContact(contact:Contact);
   deleteContact(contact:Contact);
+  findContacts();
+
   // readContactsLocalStorage(contact:Contact);
   // writeLocalStorageContacts(contact:Contact);
 /*

@@ -6,6 +6,8 @@ import { ContactApiService } from "./contact-api.service";
 import { ContactStorage } from "./contact-storage";
 import { environment } from "../../../environments/environment";
 
+// import { AuthenticationService } from "./authentication.service";
+
 @Injectable()
 export class ContactService {
   /*
@@ -14,26 +16,29 @@ export class ContactService {
    */
   contactStorage : ContactStorage;
 
-    constructor(private contactApi: ContactApiService, public localStorage: LocalstorageService) {
+  // constructor(private auth: AuthenticationService, private userApiService: UserApiService) { }
+
+    constructor(private contactApi: ContactApiService, private localStorage: LocalstorageService) {
       // console.log(environment);
       // this.contactStorage = environment.endpointUrl ? contactApi : localStorage;
+      this.contactStorage = environment.endpointUrl ? contactApi : localStorage;
     }
 
   public findContacts() {
     // return this.localStorage.readContactsLocalStorage();
-    return this.contactApi.readContactsApi();
+    return this.contactStorage.findContacts();
   }
 
   public saveContact(contact: Contact) {
     console.log('--- HERE ---');
     // return this.localStorage.saveContact(contact);
-    return this.contactApi.saveContactsApi(contact);
+    return this.contactStorage.saveContact(contact);
   }
 
   public deleteContact(contact: Contact) {
     console.log('--- WHERE ---');
     // return this.localStorage.deleteContact(contact);
-    return this.contactApi.deleteContactApi(contact);
+    return this.contactStorage.deleteContact(contact);
   }
 
     /*

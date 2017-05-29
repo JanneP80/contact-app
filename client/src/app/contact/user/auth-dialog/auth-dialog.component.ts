@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialogRef} from "@angular/material";
 import {Error} from "tslint/lib/error";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -12,7 +13,7 @@ export class AuthDialogComponent implements OnInit {
   // error: Error;
   // error: error.status;
 
-  constructor(public dialog: MdDialogRef<AuthDialogComponent>) {
+  constructor(private router: Router, public dialog: MdDialogRef<AuthDialogComponent>) {
 
   }
 
@@ -27,5 +28,7 @@ export class AuthDialogComponent implements OnInit {
     // this.dialog.close(this.user);
     // this.dialog.close();
  // }
-
+  out() {
+    this.router.navigate(['/login']);
+  }
 }

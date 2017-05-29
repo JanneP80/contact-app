@@ -48,7 +48,7 @@ export class LocalstorageService implements ContactStorage {
     // observable että voi käyttää suoraan webapi/localstorage tiloissa
   }
 
-  findAllContacts(){
+  findContacts(){
     let contacts = this.readContactsLocalStorage();
     return Observable.of(contacts);
   }

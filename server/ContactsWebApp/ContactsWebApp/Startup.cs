@@ -58,7 +58,7 @@ namespace ContactsWebApp
                         );
             });
 
-            // Configure authorization TODO 
+            // Configure authorization 
             services.AddAuthorization(auth =>
             {
                 auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
@@ -80,7 +80,7 @@ namespace ContactsWebApp
 
             app.UseCors("CorsPolicy");
 
-            // TODO Authentification init
+            // Authentification init
             app.UseJwtBearerAuthentication(new JwtBearerOptions()
             {
                 TokenValidationParameters = new TokenValidationParameters()

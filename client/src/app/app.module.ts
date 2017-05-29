@@ -44,16 +44,14 @@ const routes = [
   {
     path: 'contacts',
     component: ContactComponent
-  }
-
+  },
   /*
-  *  {
+  {
    path: 'authentication',
    // component: AuthenticationService
    component: ContactComponent
-   }
-
-   * */
+  }
+*/
 ];
 
 export function getHttp(backend: ConnectionBackend, options: RequestOptions, dialog:DialogService) {

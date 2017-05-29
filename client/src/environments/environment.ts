@@ -7,5 +7,7 @@ export const environment = {
   production: false,
   // endpointUrl: 'http://localhost:60829/api/'
   endpointUrl: 'http://localhost:49585/api'
-
+  // endpointUrl: '10.0.2.2:49585/api'
+  // endpointUrl: '157.24.106.213:49585/api'
+  // endpointUrl: '10.0.2.3:49585/api'
 };

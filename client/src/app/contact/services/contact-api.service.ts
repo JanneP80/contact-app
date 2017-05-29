@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 import { Contact } from "../contact";
-import {environment} from "../../../environments/environment";
+ import { HttpService } from "../services/http.service";
+
+import { environment } from "../../../environments/environment";
 
 @Injectable()
 export class ContactApiService {
@@ -11,9 +13,11 @@ export class ContactApiService {
   url = environment.endpointUrl + '/contacts';
   // url = environment.endpointUrl + '/values';
 
-  constructor(private http: Http) { }
+ // constructor(private http: Http) { }
 
-  readContactsApi() {
+    constructor(private http: HttpService) { }
+
+  findContacts() {
 
     /*
      return this.http.get(url).map(function (response) {
@@ -28,7 +32,7 @@ export class ContactApiService {
     // return JSON.parse(data);
   }
 
-  saveContactsApi(contact:Contact) {
+  saveContact(contact:Contact) {
 
     return contact.id ? this.updateContact(contact) : this.createContact(contact);
   }
@@ -41,7 +45,7 @@ export class ContactApiService {
     return this.http.put(this.url +'/' +contact.id, contact);
   }
 
-  deleteContactApi(contact:Contact){
+  deleteContact(contact:Contact){
 
    return this.http.delete(this.url +'/' +contact.id);
    // this.updateContact(contact);

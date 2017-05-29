@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ContactsWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using ContactsWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 
 
@@ -12,6 +13,7 @@ namespace ContactsWebApp.Controllers
 {
     [EnableCors("CorsPolicy")]
     [Route("api/contacts")]
+    [Authorize("Bearer")]
     public class ContactsController : Controller
     {
         private readonly IContactService _contactService;

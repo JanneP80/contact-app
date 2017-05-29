@@ -10,16 +10,30 @@
         <br>
         <!--  {{loginName}} -->
 
-        <div>
+        <div *ngIf="this.user">
          <!-- user: {{user.firstName}} -->
-          username
+          {{this.user.firstName}} {{this.user.lastName}}
+          <!-- {{username}}
+          {{this.user.firstName}}
+          {{LoginComponent.lastName}}
+          -->
           <br>
-          email
+          {{this.user.email}}
           <!-- <p> {{user.firstName}}</p>
            <p> {{user.lastName}} </p> -->
 
            <!-- {{user.}} -->
         </div>
+        <!-- <div ng-show="this.user!==undefined">
+          <!-- {{user.username}}
+          {{username}}
+          {{user.firstName}}
+          {{this.user.firstName}}
+
+
+
+        </div>
+        -->
         <!--<textarea md-tab-item="text" [(ngModel)]="user.userName" type="text" required
                placeholder="User name">
          <textarea ng-model="user.userName"> -->
