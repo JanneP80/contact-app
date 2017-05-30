@@ -1,7 +1,5 @@
 ## New Contact App 
 
-### Using Angular
-
 - server: C# .NET Core Web API (Visual Studio 2017)
 
 - client: Angular 4 Web app
