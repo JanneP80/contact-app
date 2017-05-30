@@ -20,7 +20,7 @@ npm install
 ```
 Cordova CLI: Installed (npm instal -g cordova)
 Web app build (ng build --environment=local --base-href . --output-path=../cordova/www )
-Execute create-android-platform.bat
+Execute build.bat
 ```
 ##### Server
 ```
