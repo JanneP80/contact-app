@@ -3,6 +3,7 @@ md-card-title {
 }
 
 .mat-card-header-text{
+  align-content: center;
   text-align: center;
   color: azure;
 }
@@ -25,4 +26,6 @@ md-card-header{
 
 .contact-header {
   font-weight: bold;
+  font-size: large;
+  padding-bottom: 4%;
 }
