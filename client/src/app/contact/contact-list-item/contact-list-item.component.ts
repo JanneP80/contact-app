@@ -3,8 +3,8 @@ import { MdDialog } from '@angular/material';
 import { Contact } from '../contact';
 // import { ContactDialogComponent } from "../contact-dialog/contact-dialog.component";
 // import { ContactListComponent } from "../contact-list/contact-list.component";
-import {ContactService} from '../services/contact.service';
-import {DialogService} from 'app/contact/services/dialog.service';
+import { ContactService } from '../services/contact.service';
+import { DialogService } from 'app/contact/services/dialog.service';
 
 @Component({
   selector: 'app-contact-list-item',
@@ -12,16 +12,8 @@ import {DialogService} from 'app/contact/services/dialog.service';
   styleUrls: ['./contact-list-item.component.css']
 })
 export class ContactListItemComponent implements OnInit {
-/*
-  contacts: Contact[];
-  firstName: string;
-  lastName: string;
-  phone: string;
-  address: string;
-  city: string;
-*/
+
   id: number;
-  // static subtitle: string;
 
   @Input() contact: [Contact];
   @Input() edit: EventEmitter<Contact>;

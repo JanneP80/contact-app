@@ -1,13 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 // import { MdDialog } from "@angular/material";
 // import { ContactDialogComponent } from "./contact/contact-dialog/contact-dialog.component";
- import { User } from './contact/user/user';
-import {NavigationEnd, Router} from "@angular/router";
-import {MdSidenav} from "@angular/material";
+import { User } from './contact/user/user';
+import { NavigationEnd, Router } from "@angular/router";
+import { MdSidenav } from "@angular/material";
 import * as _ from "lodash";
-import {UserService} from "./contact/user/services/user.service";
-import {HttpService} from "./contact/services/http.service";
-import {LoginComponent} from "./contact/user/login/login.component";
+import { UserService } from "./contact/user/services/user.service";
+// import {HttpService} from "./contact/services/http.service";
+// import {LoginComponent} from "./contact/user/login/login.component";
 
 
 @Component({
@@ -20,12 +20,6 @@ export class AppComponent implements OnInit {
   user: User;
 
   title = 'Contacts Application';
-  // loginName = User.userName;
-  // loginName = 'Undefined';
-  // firstName;
-// username :string;
-  // username = this.user.firstName;
-
 
   toolbarVisible: boolean;
   sidenavMode: string;
@@ -35,7 +29,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private userService:UserService) {
     this.sidenavMode = 'over';
     this.toolbarVisible = false;
-    // this.username = this.userService.getName()
+    // get username and email info for taskbar
     this.user = this.userService.getUser();
 }
 
@@ -50,12 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   navigateToContacts(){
-    // console.log(this.user.lastName);
-    // console.log(this.user.firstName);
-    // let lastname = this.user.lastName;
-    // let firstname = this.user.firstName;
-    // let email = this.user.email;
-
     this.router.navigate([('/contacts')]);
   }
 

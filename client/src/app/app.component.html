@@ -1,53 +1,25 @@
-
 <md-sidenav-container fullscreen class="mat-light-theme">
   <md-sidenav *ngIf="!toolbarVisible" #sidenav [mode]="sidenavMode"
               [opened]="sidenavMode == 'side'"
               align="start">
-      <div  class="ca-sidenav-content">
-        <md-icon style="width: 80px; height: 80px; font-size: 80px">account_circle</md-icon>
+    <div class="ca-sidenav-content">
+      <md-icon style="width: 80px; height: 80px; font-size: 80px">account_circle</md-icon>
+      <br>
+      Logged in as:
+      <br>
+      <div *ngIf="this.user">
+        {{this.user.firstName}} {{this.user.lastName}}
         <br>
-        Logged in as:
-        <br>
-        <!--  {{loginName}} -->
-
-        <div *ngIf="this.user">
-         <!-- user: {{user.firstName}} -->
-          {{this.user.firstName}} {{this.user.lastName}}
-          <!-- {{username}}
-          {{this.user.firstName}}
-          {{LoginComponent.lastName}}
-          -->
-          <br>
-          {{this.user.email}}
-          <!-- <p> {{user.firstName}}</p>
-           <p> {{user.lastName}} </p> -->
-
-           <!-- {{user.}} -->
-        </div>
-        <!-- <div ng-show="this.user!==undefined">
-          <!-- {{user.username}}
-          {{username}}
-          {{user.firstName}}
-          {{this.user.firstName}}
-
-
-
-        </div>
-        -->
-        <!--<textarea md-tab-item="text" [(ngModel)]="user.userName" type="text" required
-               placeholder="User name">
-         <textarea ng-model="user.userName"> -->
-        <!-- <div>{{user.userName}}</div>
-         #start
-         User {{user.userName ? 'on user' : 'ei oo user'}}
-        -->
-
+        {{this.user.email}}
       </div>
+    </div>
+
+
     <hr>
     <md-nav-list>
-      <a button md-icon-button routerLink="/login" (click)="navigateToLogin()" [appVibrate]="">Logout</a>
+      <a button routerLink="/login" (click)="navigateToLogin()" [appVibrate]="">Logout</a>
       <br>
-      <a button md-icon-button routerLink="/contacts" (click)="navigateToContacts()">Contacts</a>
+      <a button routerLink="/contacts" (click)="navigateToContacts()">Contacts</a>
     </md-nav-list>
     <hr>
     <!-- <button md-button (click)="start.close()">Settings</button> -->
@@ -55,15 +27,15 @@
 
   <md-toolbar *ngIf="!toolbarVisible" color="primary">
 
-   <!-- <button md-icon-button (click)="start.open()"> -->
+    <!-- <button md-icon-button (click)="start.open()"> -->
     <button md-icon-button (click)="toggleSideNav()">
       <md-icon>menu</md-icon>
     </button>
-    <md-divider> {{ title }} </md-divider>
+    <md-divider> {{ title }}</md-divider>
   </md-toolbar>
 
   <div>
     <router-outlet></router-outlet>
   </div>
 
-  </md-sidenav-container>
+</md-sidenav-container>

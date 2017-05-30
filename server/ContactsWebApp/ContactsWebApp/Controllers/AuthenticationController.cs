@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using ContactsWebApp.Config;
 using ContactsWebApp.Controllers.Communication;
 using ContactsWebApp.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Migrations;
+// using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContactsWebApp.Controllers
 {
@@ -33,12 +29,5 @@ namespace ContactsWebApp.Controllers
             return new JsonResult(new AuthResponse(user.Id.ToString(), token));
         }
     
-        /*
-        public IActionResult Unauthorized()
-        {
-            return Authenticate();
-            // return Mess;
-        }
-        */
     }
 }

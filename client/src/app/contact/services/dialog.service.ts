@@ -3,7 +3,7 @@ import { Contact } from 'app/contact/contact';
 import { MdDialog } from '@angular/material';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
 import { MapDialogComponent } from '../map-dialog/map-dialog.component';
-import {AuthDialogComponent} from "../user/auth-dialog/auth-dialog.component";
+import { AuthDialogComponent } from "../user/auth-dialog/auth-dialog.component";
 // import {error} from "util";
 
 

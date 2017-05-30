@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http, RequestOptions, RequestOptionsArgs, Response, ConnectionBackend, Headers, Request} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {DialogService} from "./dialog.service";
@@ -6,7 +6,7 @@ import {DialogService} from "./dialog.service";
 @Injectable()
 // inject dialog authDialog 401
 
-export class HttpService  extends Http {
+export class HttpService extends Http {
 
   private authHeaderName: string = 'Authorization';
   private authHeaderBearerPrefix: string = 'Bearer ';
@@ -20,15 +20,16 @@ export class HttpService  extends Http {
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
     if (typeof url === 'string') {
       if (!options) {
-        options = { headers: new Headers()
+        options = {
+          headers: new Headers()
         };
       }
       options.headers.set(this.authHeaderName, this.authHeaderBearerPrefix + this.authToken);
 
-    }else {
+    } else {
       url.headers.set(this.authHeaderName, this.authHeaderBearerPrefix + this.authToken)
     }
-    return this.intercept(super.request(url,options));
+    return this.intercept(super.request(url, options));
   }
 
   private intercept(observable: Observable<Response>): Observable<Response> {
@@ -70,12 +71,12 @@ export class HttpService  extends Http {
 
 // TODO http.delete
 
-   delete(url: string, options?: RequestOptionsArgs, skipInterceptor?: boolean): Observable<Response> {
-     if (skipInterceptor) {
-       return super.delete(url, options);
-     }
-     return this.intercept(super.delete(url, options));
-   }
+  delete(url: string, options?: RequestOptionsArgs, skipInterceptor?: boolean): Observable<Response> {
+    if (skipInterceptor) {
+      return super.delete(url, options);
+    }
+    return this.intercept(super.delete(url, options));
+  }
 
 // TODO http.put
   put(url: string, body: any, options?: RequestOptionsArgs, skipInterceptor?: boolean): Observable<Response> {

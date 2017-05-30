@@ -6,5 +6,12 @@ md-divider {
 .ca-sidenav-content {
   background-color: dodgerblue;
   color: #373f48;
+  text-align: center;
+}
+
+md-nav-list a {
+  text-align: center;
+  /* border: 1px solid #f00 !important; */
+  display: block;
 }
 

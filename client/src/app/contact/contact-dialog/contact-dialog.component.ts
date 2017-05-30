@@ -14,14 +14,12 @@ export class ContactDialogComponent implements OnInit {
 
   contact: Contact;
   subtitle: string;
-  // public subtitle: string = 'Add New Contact:';
 
   constructor(public dialog: MdDialogRef<ContactDialogComponent>) {
   }
 
   addNewContact() {
-    // this.subtitle = ContactListItemComponent.subtitle;
-    // this.contactService.addNewContact2(this.id,firstName, lastName, phone, address, city);
+
     this.dialog.close(this.contact);
   }
 

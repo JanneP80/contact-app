@@ -1,12 +1,5 @@
 export class Contact {
-  /*
-  private _id: number;
-  private _firstName: string;
-  private _lastName: string;
-  private _phone: number;
-  private _address: string;
-  private _city: string;
-  */
+
    id: number;
    firstName: string;
    lastName: string;

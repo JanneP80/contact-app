@@ -7,11 +7,4 @@ export interface ContactStorage {
   deleteContact(contact:Contact);
   findContacts();
 
-  // readContactsLocalStorage(contact:Contact);
-  // writeLocalStorageContacts(contact:Contact);
-/*
-  saveContact(contact: Contact);
-  findContacts() : Observable<any>;
-  deleteContact(contact: Contact)
-  */
 }

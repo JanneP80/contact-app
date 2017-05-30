@@ -31,13 +31,7 @@ export class ContactComponent implements OnInit {
     this.contactService.findContacts().subscribe(contacts => {
       this.contacts=contacts;
     });
-    /*
-    this.contactService.findContacts().subscribe(data => {
-      // console.log(data.json()); // data is response obj, json should return _body
-      this.contacts = data.json();
-    });
-*/
-    // console.log('view Now');
+
   }
 
   /*Call Add and Edit */

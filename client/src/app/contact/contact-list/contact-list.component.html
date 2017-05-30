@@ -4,38 +4,3 @@
   <app-contact-list-item [contact]="contact" [edit]="editContact" [remove]="removeContact" [showOnMap]="showContactOnMap">Loading contact list item...</app-contact-list-item>
 
 </div>
-
-<!--
-<app-contact-list-item *ngFor="let contact of _contacts">Loading item...</app-contact-list-item>
-<app-contact-list-item>Loading item...</app-contact-list-item>
-
-<div *ngFor="let contact of _contacts">
-  {{contact.firstName + ' ' + contact.lastName}}>
-</div>
--->
-
-<!--
-<div *ngFor="let contact of _contacts">
-  <app-contact-list-item [contact]="contact"> Loading list of items
-  </app-contact-list-item>
--->
-<!--
-<div *ngFor="let contact of contacts" (click)="contactSelected(contact)">
-  {{contact.firstName + ' ' + contact.lastName}}
-
-</div>
-
-<button md-fab>
-  <md-icon (click)="addContact()">add</md-icon>
-</button>
-
-
-<button md-button (click)="contactDialog(selectedContact)">Open dialog</button>
-
-<div *ngFor="let contact of contacts">
-  <app-contact-list-item [contact]="contact" (edit)="edit($event)" (remove)="remove($event)" (showOnMap)="showOnMap($event)">
-    contact-list works!
-  </app-contact-list-item>
-</div>
-
--->

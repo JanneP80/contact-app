@@ -8,7 +8,8 @@ export class AuthenticationService {
 
   private url: string = environment.endpointUrl + '/authentication';
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService) {
+  }
 
   authenticate(username: string, password: string) {
     return this.http.post(this.url, {

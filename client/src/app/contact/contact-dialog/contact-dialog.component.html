@@ -1,7 +1,4 @@
 
-<!-- <h2>{{subtitle}}</h2>  -->
-<!--  <h2>{{contact.id ? 'Edit Contact' : 'New Contact'}}</h2>  -->
-
 <h2>{{contact.id ? 'Edit Contact' : 'New Contact'}}</h2>
 <div>
 
@@ -34,8 +31,7 @@
          placeholder="City">
 </md-input-container>
 <br>
-  <!--<button md-raised-button (click)="addNewContact(firstName, lastName, phone, address, city)" md-dialog-close>Add</button>
-  -->
+
   <button md-raised-button (click)="addNewContact()" md-dialog-close>Save</button>
   <button md-raised-button md-dialog-close [appVibrate]="">Cancel</button>
 </div>
