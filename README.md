@@ -26,7 +26,7 @@ Execute create-android-platform.bat
 ```
 Visual Studio 2017: Installed
 Open Solution and Run server
---> http://localhost:60829/api
+--> http://localhost:49585/
 ```
 ## Run
 
@@ -68,7 +68,3 @@ ng build --environment=local --output-path=../cordova/www --base-href .
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-#### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
