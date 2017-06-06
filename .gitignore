@@ -13,3 +13,5 @@
 /cordova/gen
 /cordova/platforms/android
 /cordova/platforms/browser
+/cordova/node_modules
+/server/ContactsWebApp/ContactsWebApp/Properties/PublishProfiles

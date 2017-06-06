@@ -1,0 +1,141 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appService_ContactsWebApp20170602041839_name": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_location": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_name": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_resourceGroup": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_skuName": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_skuTier": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_skuFamily": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_skuSize": {
+      "type": "string"
+    },
+    "appServicePlan_ContactsWebApp20170602041839_workerSizeId": {
+      "type": "int"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_name": {
+      "type": "string"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_adminlogin": {
+      "type": "string"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_adminpassword": {
+      "type": "securestring"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_location": {
+      "type": "string"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_ContactsWebApp20170602041839_db_name": {
+      "type": "string"
+    },
+    "dbserver_contactswebapp20170602041839dbserver_ContactsWebApp20170602041839_db_location": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "location": "[parameters('appServicePlan_ContactsWebApp20170602041839_location')]",
+      "name": "[parameters('appService_ContactsWebApp20170602041839_name')]",
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "[concat('hidden-related:', resourceId(parameters('appServicePlan_ContactsWebApp20170602041839_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_ContactsWebApp20170602041839_name')))]": "empty"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlan_ContactsWebApp20170602041839_name'))]",
+        "[concat('Microsoft.Sql/servers/', parameters('dbserver_contactswebapp20170602041839dbserver_name'))]"
+      ],
+      "kind": "WebApp",
+      "properties": {
+        "name": "[parameters('appService_ContactsWebApp20170602041839_name')]",
+        "serverFarmId": "[resourceId(parameters('appServicePlan_ContactsWebApp20170602041839_resourceGroup'),'Microsoft.Web/serverfarms', parameters('appServicePlan_ContactsWebApp20170602041839_name'))]",
+        "kind": "WebApp"
+      },
+      "resources": [
+        {
+          "name": "connectionstrings",
+          "type": "config",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', parameters('appService_ContactsWebApp20170602041839_name'))]"
+          ],
+          "properties": {
+            "DefaultConnection": {
+              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('dbserver_contactswebapp20170602041839dbserver_name'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('dbserver_contactswebapp20170602041839dbserver_ContactsWebApp20170602041839_db_name'), ';User Id=', parameters('dbserver_contactswebapp20170602041839dbserver_adminlogin'), '@', parameters('dbserver_contactswebapp20170602041839dbserver_name'), ';Password=', parameters('dbserver_contactswebapp20170602041839dbserver_adminpassword'))]",
+              "type": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "location": "[parameters('appServicePlan_ContactsWebApp20170602041839_location')]",
+      "name": "[parameters('appServicePlan_ContactsWebApp20170602041839_name')]",
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "[parameters('appServicePlan_ContactsWebApp20170602041839_skuName')]",
+        "tier": "[parameters('appServicePlan_ContactsWebApp20170602041839_skuTier')]",
+        "family": "[parameters('appServicePlan_ContactsWebApp20170602041839_skuFamily')]",
+        "size": "[parameters('appServicePlan_ContactsWebApp20170602041839_skuSize')]"
+      },
+      "properties": {
+        "name": "[parameters('appServicePlan_ContactsWebApp20170602041839_name')]"
+      }
+    },
+    {
+      "location": "[parameters('dbserver_contactswebapp20170602041839dbserver_location')]",
+      "name": "[parameters('dbserver_contactswebapp20170602041839dbserver_name')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2014-04-01-preview",
+      "properties": {
+        "administratorLogin": "[parameters('dbserver_contactswebapp20170602041839dbserver_adminlogin')]",
+        "administratorLoginPassword": "[parameters('dbserver_contactswebapp20170602041839dbserver_adminpassword')]"
+      },
+      "resources": [
+        {
+          "location": "[parameters('dbserver_contactswebapp20170602041839dbserver_location')]",
+          "name": "AllowAllAzureIPs",
+          "type": "firewallrules",
+          "apiVersion": "2014-04-01",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('dbserver_contactswebapp20170602041839dbserver_name'))]"
+          ],
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          }
+        },
+        {
+          "location": "[parameters('dbserver_contactswebapp20170602041839dbserver_ContactsWebApp20170602041839_db_location')]",
+          "name": "[parameters('dbserver_contactswebapp20170602041839dbserver_ContactsWebApp20170602041839_db_name')]",
+          "type": "databases",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[concat('Microsoft.Sql/servers/', parameters('dbserver_contactswebapp20170602041839dbserver_name'))]"
+          ],
+          "properties": {
+            "collation": "SQL_Latin1_General_CP1_CI_AS",
+            "maxSizeBytes": "3741824"
+          }
+        }
+      ]
+    }
+  ]
+}

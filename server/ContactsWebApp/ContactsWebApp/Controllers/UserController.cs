@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsWebApp.Controllers
 {
-    [EnableCors("CorsPolicy")]
+    // [EnableCors("CorsPolicy")]
     [Route("api/user")]
     [Authorize("Bearer")]
         public class UserController : Controller

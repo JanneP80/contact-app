@@ -31,8 +31,7 @@ namespace ContactsWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc();
+            
 
             // Add Injections 
             services.AddScoped<IContactService, ContactService>();
@@ -65,6 +64,10 @@ namespace ContactsWebApp
             // Configure database
             services.AddDbContext<ContactsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+
+            // Has to be the last one to call
+            // Add framework services.
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -99,12 +102,18 @@ namespace ContactsWebApp
                 }
             });
 
-            app.UseMvc();
+            
 
             // Database initialization
             var context = app.ApplicationServices.GetService<ContactsContext>();
             if (context.Database.EnsureCreated())
+            {
                 context.Database.Migrate();
+            }
+
+            // Has to be the last one to call
+            app.UseMvc();
+
         }
         
     }

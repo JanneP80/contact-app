@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace ContactsWebApp.Controllers
 {
-    [EnableCors("CorsPolicy")]
+    // [EnableCors("CorsPolicy")]
     [Route("api/contacts")]
     [Authorize("Bearer")]
     public class ContactsController : Controller
