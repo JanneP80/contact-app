@@ -1,7 +1,5 @@
 ## New Contact App 
 
-### Using Angular
-
 - server: C# .NET Core Web API (Visual Studio 2017)
 
 - client: Angular 4 Web app
@@ -20,7 +18,7 @@ npm install
 ```
 Cordova CLI: Installed (npm instal -g cordova)
 Web app build (ng build --environment=local --base-href . --output-path=../cordova/www )
-Execute create-android-platform.bat
+Execute build.bat
 ```
 ##### Server
 ```
