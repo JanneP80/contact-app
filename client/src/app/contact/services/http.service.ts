@@ -50,7 +50,7 @@ export class HttpService extends Http {
     this.authToken = token;
   }
 
-  deleteToken(token: string) {
+  deleteToken() {
     this.authToken = null;
   }
 

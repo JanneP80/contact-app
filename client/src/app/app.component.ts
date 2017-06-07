@@ -6,7 +6,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { MdSidenav } from "@angular/material";
 import * as _ from "lodash";
 import { UserService } from "./contact/user/services/user.service";
-// import {HttpService} from "./contact/services/http.service";
+ import {HttpService} from "./contact/services/http.service";
 // import {LoginComponent} from "./contact/user/login/login.component";
 
 
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 
-  constructor(private router: Router, private userService:UserService) {
+  constructor(private router: Router, private userService:UserService, private httpService:HttpService) {
     this.sidenavMode = 'over';
     this.toolbarVisible = false;
     // get username and email info for taskbar
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
 
   navigateToLogin(){
     // logout();
-    this.HttpService.deleteToken();
+    this.httpService.deleteToken();
     this.router.navigate([('/login')]);
   }
 
